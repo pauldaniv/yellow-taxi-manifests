@@ -1,0 +1,18 @@
+app:
+  name: yellow-taxi-api
+  group: backend
+  replicaCount: 1
+  container:
+    image:
+      repository: "taxi-trip-api"
+      tag: latest
+      pullPolicy: Never
+
+    port: 8080
+    config: []
+    env:
+      - key: key
+        value: value
+  service:
+    type: ClusterIP
+    port: 8080

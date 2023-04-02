@@ -1,0 +1,14 @@
+repositories:
+  - name: prometheus-community
+    url: https://prometheus-community.github.io/helm-charts
+
+releases:
+  - name: yellow-taxi-api
+    chart: ./charts/yellow-taxi-api
+    values:
+      - ./values/yellow-taxi-api.yaml
+
+  - name: yellow-taxi-api
+    chart: ./charts/yellow-taxi-client
+    values:
+      - ./values/yellow-taxi-client.yaml
