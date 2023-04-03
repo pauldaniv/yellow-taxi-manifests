@@ -1,19 +1,24 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Values.ingress.name }}
   annotations:
-    kubernetes.io/ingress.class: {{ .Values.ingress.annotations.class }}
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  defaultBackend:
+    service:
+      name: "yellow-taxi-api"
+      port:
+        number: 80
+  ingressClassName: {{ .Values.ingress.annotations.class }}
   rules:
-  {{- range .Values.ingress.hosts }}
-  - host: {{ .host | quote }}
+  - host: "yellowtaxi.com"
     http:
       paths:
-      {{- range .paths }}
-      - path: {{ .path }}
+      - path: /
+        pathType: Prefix
         backend:
-          serviceName: {{ .backend.serviceName }}
-          servicePort: {{ .backend.servicePort }}
-      {{- end }}
-  {{- end }}
+          service:
+            name: "yellow-taxi-api"
+            port:
+              number: 80

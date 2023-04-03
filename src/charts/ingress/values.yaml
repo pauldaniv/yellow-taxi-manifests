@@ -4,9 +4,9 @@ ingress:
   annotations:
     class: nginx
   hosts:
-    - host: chart-example.local
+    - host: api.yellowtaxi.com
       paths:
         - path: /
           backend:
-            serviceName: serviceName
-            servicePort: 8080
+            serviceName: yellow-taxi-api
+            servicePort: 80

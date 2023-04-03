@@ -1,8 +1,8 @@
 ingress:
   hosts:
-    - host: api.k8s.com
+    - host: api.yellowtaxi.com
       paths:
         - path: /
           backend:
             serviceName: yellow-taxi-api
-            servicePort: 8080
+            servicePort: 80
