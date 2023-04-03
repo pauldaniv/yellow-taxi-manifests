@@ -1,6 +1,6 @@
 ingress:
   hosts:
-    - host: api.yellowtaxi.com
+    - host: yellowtaxi.com
       paths:
         - path: /
           backend:

@@ -4,7 +4,7 @@ ingress:
   annotations:
     class: nginx
   hosts:
-    - host: api.yellowtaxi.com
+    - host: yellowtaxi.com
       paths:
         - path: /
           backend:
