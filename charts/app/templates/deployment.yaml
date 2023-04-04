@@ -7,7 +7,7 @@ metadata:
     app: {{ .Values.app.name }}
     group: {{ .Values.app.group }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.app.replicaCount }}
   selector:
     matchLabels:
       app: {{ .Values.app.name }}
@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: {{ .Values.app.name }}
-          image: "{{ .Values.app.container.image.repository }}:{{ .Values.app.container.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.app.container.image.repository }}/{{ .Values.app.container.image.name }}:{{ .Values.app.container.image.version }}"
           imagePullPolicy: {{ .Values.app.container.image.pullPolicy }}
           ports:
               - containerPort: {{ .Values.app.container.port }}

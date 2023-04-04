@@ -4,8 +4,9 @@ app:
   replicaCount: 1
   container:
     image:
-      repository: "taxi-trip-api"
-      tag: latest2
+      repository: "aws.ecr.com"
+      name: taxi-trip-api
+      version: latest6
       pullPolicy: Never
 
     port: 8080
