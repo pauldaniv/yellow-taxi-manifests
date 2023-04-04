@@ -23,11 +23,12 @@ spec:
           imagePullPolicy: {{ .Values.app.container.image.pullPolicy }}
           ports:
               - containerPort: {{ .Values.app.container.port }}
+                name: {{ .Values.app.name }}
           livenessProbe:
             httpGet:
               path: /health_check
-              port: 8080
+              port: {{ .Values.app.container.port }}
           readinessProbe:
             httpGet:
               path: /health_check
-              port: 8080
+              port: {{ .Values.app.container.port }}

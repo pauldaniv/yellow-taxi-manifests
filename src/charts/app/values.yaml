@@ -5,7 +5,7 @@ app:
   container:
     image:
       repository: "taxi-trip-api"
-      tag: latest
+      tag: latest2
       pullPolicy: Never
 
     port: 8080
@@ -15,4 +15,4 @@ app:
         value: value
   service:
     type: ClusterIP
-    port: 8080
+    port: 80

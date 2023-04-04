@@ -10,4 +10,4 @@ spec:
     app: {{ .Values.app.name }}
   ports:
     - port: {{ .Values.app.service.port }}
-      targetPort: {{ .Values.app.container.port }}
+      targetPort: {{ .Values.app.name }}
