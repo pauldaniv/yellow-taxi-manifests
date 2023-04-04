@@ -15,10 +15,3 @@ jobs:
         uses: actions/checkout@v3
       - name: Test
         run: echo hello
-      - name: setup-helmfile
-        uses: mamezou-tech/setup-helmfile@v1.2.0
-      - name: Test Helmfile
-        run: |
-          helmfile --version
-          helm version
-          kubectl version
