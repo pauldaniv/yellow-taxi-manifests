@@ -1,12 +1,12 @@
+# Contains default app-level properties
+# to be overridden in files under 'values' folder
 app:
-  name: yellow-taxi-api
+  name: app
   group: backend
   replicaCount: 1
   container:
     image:
       repository: "aws.ecr.com"
-      name: taxi-trip-api
-      version: latest6
       pullPolicy: Never
 
     port: 8080

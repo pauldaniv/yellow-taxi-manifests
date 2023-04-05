@@ -8,3 +8,8 @@ releases:
     chart: ./charts/app
     values:
       - ./values/yellow-taxi-api.yaml
+
+  - name: yellow-taxi-client
+    chart: ./charts/app
+    values:
+      - ./values/yellow-taxi-client.yaml

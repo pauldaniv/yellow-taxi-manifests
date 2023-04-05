@@ -1,8 +1,14 @@
 ingress:
   hosts:
-    - host: yellowtaxi.com
+    - host: api.yellowtaxi.com
       paths:
         - path: /
           backend:
-            serviceName: yellow-taxi-api
+            serviceName: api
+            servicePort: 80
+    - host: client.yellowtaxi.com
+      paths:
+        - path: /
+          backend:
+            serviceName: client
             servicePort: 80

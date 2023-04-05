@@ -1,9 +1,9 @@
 app:
-  name: api
+  name: client
   container:
     image:
-      name: taxi-trip-api
-      version: latest6
+      name: taxi-trip-client
+      version: latest3
     env:
       - key: key
         value: value
