@@ -19,7 +19,8 @@ if [[ "$ACTION" = "prepare" ]]; then
   echo "Running helmfile init"
   helmfile init
 elif [[ "$ACTION" = "apply" ]]; then
-  echo "Appling infrastructure..."
+  echo "Applying infrastructure..."
+  aws --version
   helmfile apply
 elif [[ "$ACTION" = "destroy" ]]; then
   echo "Destroying infrastructure..."
