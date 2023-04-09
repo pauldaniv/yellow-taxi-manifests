@@ -6,8 +6,8 @@ app:
   replicaCount: 1
   container:
     image:
-      repository: "aws.ecr.com"
-      pullPolicy: Never
+      repository: "${AWS_DOMAIN_OWNER_ID}.dkr.ecr.us-east-2.amazonaws.com"
+      pullPolicy: Always
 
     port: 8080
     config: []

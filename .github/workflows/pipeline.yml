@@ -2,16 +2,24 @@ name: Microservice Manifests
 
 on:
   push:
-    branches: [ develop, main ]
+    branches: [ main, develop ]
   pull_request:
     branches: [ main ]
 
 jobs:
   sync:
     runs-on: ubuntu-latest
-
+    container:
+      image: ghcr.io/pauldaniv/yellow-taxi-scripts/helmfile:1.1
+    env:
+      AWS_DOMAIN_OWNER_ID: ${{ secrets.AWS_DOMAIN_OWNER_ID }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Test
-        run: echo hello
+      - name: Prepare
+        run: ./manage_state.sh prepare
+      - name: Sync
+        if: github.ref == 'refs/heads/main'
+        run: ./manage_state.sh apply
