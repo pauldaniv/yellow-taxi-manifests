@@ -26,7 +26,7 @@ elif [[ "$ACTION" = "destroy" ]]; then
   echo "Destroying infrastructure..."
   helmfile destroy
 else
-  echo "Unknown action provided: $ACTION. $AVAILABLE_ACTIONS"
+  echo "Unknown action provided: $ACTION. Available actions: $AVAILABLE_ACTIONS"
 fi
 
 echo "Done!"
