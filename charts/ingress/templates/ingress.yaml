@@ -3,26 +3,22 @@ kind: Ingress
 metadata:
   name: {{ .Values.ingress.name }}
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
 spec:
-  defaultBackend:
-    service:
-      name: "yellow-taxi-api"
-      port:
-        number: 80
-  ingressClassName: {{ .Values.ingress.annotations.class }}
+  ingressClassName: alb
   rules:
-  {{- range .Values.ingress.hosts }}
-  - host: {{ .host | quote }}
-    http:
-      paths:
-      {{- range .paths }}
-      - path: {{ .path }}
-        pathType: Prefix
-        backend:
-          service:
-            name: {{ .backend.serviceName }}
-            port:
-              number: {{ .backend.servicePort }}
-      {{- end }}
-  {{- end }}
+    {{- range .Values.ingress.hosts }}
+    - host: {{ .host | quote }}
+      http:
+        paths:
+          {{- range .paths }}
+          - path: {{ .path }}
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .backend.serviceName }}
+                port:
+                  number: {{ .backend.servicePort }}
+        {{- end }}
+    {{- end }}

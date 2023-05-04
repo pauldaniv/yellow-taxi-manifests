@@ -4,7 +4,7 @@ ingress:
   annotations:
     class: nginx
   hosts:
-    - host: yellowtaxi.com #todo: replace with custom domain
+    - host: api.yellow-taxi.com
       paths:
         - path: /
           backend:
