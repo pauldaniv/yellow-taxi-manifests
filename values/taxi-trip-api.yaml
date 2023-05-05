@@ -3,7 +3,7 @@ app:
   container:
     image:
       name: taxi-trip-api
-      versionTag: latest
+      versionTag: 8354a54
     env:
       - key: key
         value: value
