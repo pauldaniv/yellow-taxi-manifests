@@ -3,17 +3,9 @@ ingress:
   replicaCount: 1
   annotations:
     class: nginx
-  hosts:
-    - host: api.yellow-taxi.com
-      paths:
-        - path: /
-          backend:
-            serviceName: yellow-taxi-api
-            servicePort: 80
 
-    - host: client.yellow-taxi.com
-      paths:
+  hosts:
+    - paths:
         - path: /
           backend:
-            serviceName: taxi-trip-client
             servicePort: 80

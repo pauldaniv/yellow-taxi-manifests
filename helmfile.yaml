@@ -1,5 +1,5 @@
 releases:
-  - name: ingress-controller
+  - name: ingress
     chart: ./charts/ingress
     values:
       - ./values/ingress.yaml
