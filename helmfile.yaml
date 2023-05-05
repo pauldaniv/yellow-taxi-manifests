@@ -7,9 +7,9 @@ releases:
   - name: yellow-taxi-api
     chart: ./charts/app
     values:
-      - ./values/yellow-taxi-api.yaml
+      - ./values/taxi-trip-api.yaml
 
   - name: yellow-taxi-client
     chart: ./charts/app
     values:
-      - ./values/yellow-taxi-client.yaml
+      - ./values/taxi-trip-client.yaml
