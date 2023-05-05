@@ -4,16 +4,9 @@ ingress:
   annotations:
     class: nginx
   hosts:
-    - host: host
+    - host: dummy
       paths:
-        - path: /
+        - path: dummy
           backend:
-            serviceName: name
-            servicePort: 80
-
-    - host: host
-      paths:
-        - path: /
-          backend:
-            serviceName: name
-            servicePort: 80
+            serviceName: dummy
+            servicePort: dummy
