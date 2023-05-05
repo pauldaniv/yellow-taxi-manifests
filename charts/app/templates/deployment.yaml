@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: {{ .Values.app.name }}
-          image: "{{ .Values.app.container.image.repository }}/{{ .Values.app.container.image.name }}:{{ .Values.app.container.image.version }}"
+          image: "{{ .Values.app.container.image.repository }}/{{ .Values.app.container.image.name }}:{{ .Values.app.container.image.versionTag }}"
           imagePullPolicy: {{ .Values.app.container.image.pullPolicy }}
           ports:
               - containerPort: {{ .Values.app.container.port }}
