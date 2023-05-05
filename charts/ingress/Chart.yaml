@@ -12,7 +12,3 @@ home: https://github.com/wkrzywiec/k8s-helm-helmfile/tree/master/helm
 maintainers:
   - name: Pavlo Daniv
     url: https://github.com/pauldaniv
-dependencies:
-  - name: nginx-ingress
-    version: 0.17.0
-    repository: https://helm.nginx.com/stable
