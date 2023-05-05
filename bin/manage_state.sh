@@ -22,6 +22,8 @@ elif [[ "$ACTION" = "apply" ]]; then
   echo "Applying infrastructure..."
   aws --version
   helmfile apply
+  echo "Getting ingress information:"
+  kubectl get ingress
 elif [[ "$ACTION" = "destroy" ]]; then
   echo "Destroying infrastructure..."
   helmfile destroy
