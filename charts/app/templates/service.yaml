@@ -5,7 +5,7 @@ metadata:
   labels:
     group: {{ .Values.app.group }}
 spec:
-  type: {{ .Values.app.type }}
+  type: {{ .Values.app.service.type }}
   selector:
     app: {{ .Values.app.name }}
   ports:
