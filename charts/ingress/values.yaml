@@ -3,9 +3,17 @@ ingress:
   replicaCount: 1
   annotations:
     class: nginx
-
   hosts:
-    - paths:
+    - host: host
+      paths:
         - path: /
           backend:
+            serviceName: name
+            servicePort: 80
+
+    - host: host
+      paths:
+        - path: /
+          backend:
+            serviceName: name
             servicePort: 80
