@@ -3,7 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: zookeeper-scripts
-  namespace: kafka
+  namespace: zookeeper
   labels:
     app.kubernetes.io/name: zookeeper
 data:
