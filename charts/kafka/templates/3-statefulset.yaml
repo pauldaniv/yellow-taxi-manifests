@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: kafka
-  namespace: default
+  namespace: kafka
 spec:
   podManagementPolicy: Parallel
   replicas: 3
