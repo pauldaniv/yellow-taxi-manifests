@@ -38,7 +38,7 @@ spec:
               memory: 256Mi
           env:
             - name: BITNAMI_DEBUG
-              value: "false"
+              value: "true"
             - name: ZOO_DATA_LOG_DIR
               value: ""
             - name: ZOO_PORT_NUMBER
@@ -74,13 +74,9 @@ spec:
             - name: ZOO_HEAP_SIZE
               value: "1024"
             - name: ZOO_LOG_LEVEL
-              value: "ERROR"
+              value: "DEBUG"
             - name: ALLOW_ANONYMOUS_LOGIN
               value: "yes"
-            - name: ZOO_ENABLE_PROMETHEUS_METRICS
-              value: "yes"
-            - name: ZOO_PROMETHEUS_METRICS_PORT_NUMBER
-              value: "9141"
             - name: POD_NAME
               valueFrom:
                 fieldRef:
