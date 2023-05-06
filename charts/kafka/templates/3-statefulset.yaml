@@ -67,6 +67,8 @@ spec:
               value: "yes"
             - name: KAFKA_ZOOKEEPER_PROTOCOL
               value: PLAINTEXT
+            - name: JMX_PORT
+              value: "5555"
             - name: KAFKA_VOLUME_DIR
               value: "/bitnami/kafka"
             - name: KAFKA_LOG_DIR
@@ -159,11 +161,41 @@ spec:
             - name: scripts
               mountPath: /scripts/setup.sh
               subPath: setup.sh
+        - name: jmx-exporter
+          image: bitnami/jmx-exporter:0.17.2
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1001
+          command:
+            - java
+          args:
+            - -XX:MaxRAMPercentage=100
+            - -XshowSettings:vm
+            - -jar
+            - jmx_prometheus_httpserver.jar
+            - "5556"
+            - /etc/jmx-kafka/jmx-kafka-prometheus.yml
+          ports:
+            - name: metrics
+              containerPort: 5556
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 250m
+              memory: 256Mi
+          volumeMounts:
+            - name: jmx-config
+              mountPath: /etc/jmx-kafka
       volumes:
         - name: scripts
           configMap:
             name: kafka-scripts
             defaultMode: 0755
+        - name: jmx-config
+          configMap:
+            name: kafka-jmx-configuration
         - name: logs
           emptyDir: {}
   volumeClaimTemplates:

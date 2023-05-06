@@ -77,6 +77,10 @@ spec:
               value: "ERROR"
             - name: ALLOW_ANONYMOUS_LOGIN
               value: "yes"
+            - name: ZOO_ENABLE_PROMETHEUS_METRICS
+              value: "yes"
+            - name: ZOO_PROMETHEUS_METRICS_PORT_NUMBER
+              value: "9141"
             - name: POD_NAME
               valueFrom:
                 fieldRef:

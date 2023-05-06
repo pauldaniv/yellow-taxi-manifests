@@ -20,7 +20,6 @@ if [[ "$ACTION" = "prepare" ]]; then
   helmfile init
 elif [[ "$ACTION" = "apply" ]]; then
   echo "Applying infrastructure..."
-  aws --version
   helmfile apply
   echo "Getting ingress details:"
   kubectl get ingress
