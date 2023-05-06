@@ -54,7 +54,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: KAFKA_CFG_ZOOKEEPER_CONNECT
-              value: zookeeper-headless.zookeeper
+              value: zookeeper
             - name: KAFKA_INTER_BROKER_LISTENER_NAME
               value: "INTERNAL"
             - name: KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP
