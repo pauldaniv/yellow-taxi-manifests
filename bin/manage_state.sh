@@ -30,6 +30,7 @@ elif [[ "$ACTION" = "re-create" ]]; then
   echo "Re-creating infrastructure..."
   helmfile destroy
   helmfile apply
+  kubectl get ingress
 else
   echo "Unknown action provided: $ACTION. Available actions: $AVAILABLE_ACTIONS"
 fi
