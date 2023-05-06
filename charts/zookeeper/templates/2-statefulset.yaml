@@ -22,7 +22,7 @@ spec:
         fsGroup: 1001
       containers:
         - name: zookeeper
-          image: "${{.Values.image.repository}}/{{.Values.image.tag}}"
+          image: "{{.Values.image.repository}}/{{.Values.image.tag}}"
           securityContext:
             allowPrivilegeEscalation: false
             runAsNonRoot: true
