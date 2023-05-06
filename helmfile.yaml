@@ -4,6 +4,12 @@ releases:
     values:
       - ./values/ingress.yaml
 
+  - name: kafka
+    chart: ./charts/kafka
+
+  - name: zookeeper
+    chart: ./charts/zookeeper
+
   - name: yellow-taxi-api
     chart: ./charts/app
     values:
