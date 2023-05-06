@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: zookeeper
-  namespace: zookeeper
+  namespace: default
   labels:
     app.kubernetes.io/name: zookeeper
 spec:
