@@ -26,6 +26,10 @@ elif [[ "$ACTION" = "apply" ]]; then
 elif [[ "$ACTION" = "destroy" ]]; then
   echo "Destroying infrastructure..."
   helmfile destroy
+elif [[ "$ACTION" = "re-create" ]]; then
+  echo "Re-creating infrastructure..."
+  helmfile destroy
+  helmfile apply
 else
   echo "Unknown action provided: $ACTION. Available actions: $AVAILABLE_ACTIONS"
 fi
