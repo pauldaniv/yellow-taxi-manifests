@@ -29,6 +29,8 @@ elif [[ "$ACTION" = "destroy" ]]; then
 elif [[ "$ACTION" = "re-create" ]]; then
   echo "Re-creating infrastructure..."
   helmfile destroy
+  echo "Backoff..."
+  sleep 30s
   helmfile apply
   kubectl get ingress
 else
