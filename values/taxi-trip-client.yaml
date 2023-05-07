@@ -1,6 +1,5 @@
 app:
   name: client
-  replicaCount: 5
   container:
     image:
       name: taxi-trip-client
