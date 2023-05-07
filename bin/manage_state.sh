@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ACTION=$1
-AVAILABLE_ACTIONS="Available actions: [prepare, apply, destroy]"
+AVAILABLE_ACTIONS="Available actions: [prepare, apply, destroy, re-create]"
 
 cd "$(cd "$(dirname "$0")/.."; pwd)"
 
