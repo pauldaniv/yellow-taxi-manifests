@@ -5,7 +5,7 @@ metadata:
   name: kafka
   namespace: kafka
 spec:
-  podManagementPolicy: OrderedReady
+  podManagementPolicy: Parallel
   replicas: 3
   selector:
     matchLabels:
