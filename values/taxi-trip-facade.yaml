@@ -1,0 +1,9 @@
+app:
+  name: facade
+  container:
+    image:
+      name: taxi-trip-facade
+      versionTag: none
+    env:
+      - key: key
+        value: value

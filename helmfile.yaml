@@ -18,6 +18,12 @@ releases:
     values:
       - ./values/taxi-trip-api.yaml
 
+  - name: yellow-taxi-facade
+    namespace: yellow-taxi
+    chart: ./charts/app
+    values:
+      - ./values/taxi-trip-facade.yaml
+
   - name: yellow-taxi-client
     namespace: yellow-taxi
     chart: ./charts/app
