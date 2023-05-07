@@ -21,16 +21,16 @@ spec:
           operator: "Equal"
           value: "kafka"
           effect: "NoExecute"
-{{/*      affinity:*/}}
-{{/*        podAntiAffinity:*/}}
-{{/*          requiredDuringSchedulingIgnoredDuringExecution:*/}}
-{{/*            - labelSelector:*/}}
-{{/*                matchExpressions:*/}}
-{{/*                  - key: app.kubernetes.io/name*/}}
-{{/*                    operator: In*/}}
-{{/*                    values:*/}}
-{{/*                      - kafka*/}}
-{{/*              topologyKey: "kubernetes.io/hostname"*/}}
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app.kubernetes.io/name
+                    operator: In
+                    values:
+                      - kafka
+              topologyKey: "kubernetes.io/hostname"
       securityContext:
         fsGroup: 1001
       containers:
