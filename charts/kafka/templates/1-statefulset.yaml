@@ -5,7 +5,7 @@ metadata:
   name: kafka
   namespace: kafka
 spec:
-  podManagementPolicy: Parallel
+  podManagementPolicy: OrderedReady
   replicas: 3
   selector:
     matchLabels:
@@ -21,16 +21,16 @@ spec:
           operator: "Equal"
           value: "kafka"
           effect: "NoExecute"
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            - labelSelector:
-                matchExpressions:
-                  - key: app.kubernetes.io/name
-                    operator: In
-                    values:
-                      - kafka
-              topologyKey: "kubernetes.io/hostname"
+{{/*      affinity:*/}}
+{{/*        podAntiAffinity:*/}}
+{{/*          requiredDuringSchedulingIgnoredDuringExecution:*/}}
+{{/*            - labelSelector:*/}}
+{{/*                matchExpressions:*/}}
+{{/*                  - key: app.kubernetes.io/name*/}}
+{{/*                    operator: In*/}}
+{{/*                    values:*/}}
+{{/*                      - kafka*/}}
+{{/*              topologyKey: "kubernetes.io/hostname"*/}}
       securityContext:
         fsGroup: 1001
       containers:
@@ -174,4 +174,4 @@ spec:
           - ReadWriteOnce
         resources:
           requests:
-            storage: 20Gi
+            storage: 5Gi

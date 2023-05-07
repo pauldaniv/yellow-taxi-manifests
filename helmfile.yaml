@@ -1,21 +1,23 @@
 releases:
-  - name: ingress
-    chart: ./charts/ingress
-    values:
-      - ./values/ingress.yaml
+#  - name: ingress
+#    chart: ./charts/ingress
+#    values:
+#      - ./values/ingress.yaml
 
   - name: kafka
+    namespace: kafka
     chart: ./charts/kafka
 
   - name: zookeeper
+    namespace: zookeeper
     chart: ./charts/zookeeper
-
-  - name: yellow-taxi-api
-    chart: ./charts/app
-    values:
-      - ./values/taxi-trip-api.yaml
-
-  - name: yellow-taxi-client
-    chart: ./charts/app
-    values:
-      - ./values/taxi-trip-client.yaml
+#
+#  - name: yellow-taxi-api
+#    chart: ./charts/app
+#    values:
+#      - ./values/taxi-trip-api.yaml
+#
+#  - name: yellow-taxi-client
+#    chart: ./charts/app
+#    values:
+#      - ./values/taxi-trip-client.yaml

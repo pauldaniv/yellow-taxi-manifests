@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/name: zookeeper
 spec:
   replicas: 3
-  podManagementPolicy: Parallel
+  podManagementPolicy: OrderedReady
   selector:
     matchLabels:
       app.kubernetes.io/name: zookeeper
@@ -118,16 +118,16 @@ spec:
           operator: "Equal"
           value: "kafka"
           effect: "NoExecute"
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            - labelSelector:
-                matchExpressions:
-                  - key: app.kubernetes.io/name
-                    operator: In
-                    values:
-                      - zookeeper
-              topologyKey: "kubernetes.io/hostname"
+{{/*      affinity:*/}}
+{{/*        podAntiAffinity:*/}}
+{{/*          requiredDuringSchedulingIgnoredDuringExecution:*/}}
+{{/*            - labelSelector:*/}}
+{{/*                matchExpressions:*/}}
+{{/*                  - key: app.kubernetes.io/name*/}}
+{{/*                    operator: In*/}}
+{{/*                    values:*/}}
+{{/*                      - zookeeper*/}}
+{{/*              topologyKey: "kubernetes.io/hostname"*/}}
       volumes:
         - name: scripts
           configMap:
@@ -140,4 +140,4 @@ spec:
         accessModes: [ReadWriteOnce]
         resources:
           requests:
-            storage: 25Gi
+            storage: 5Gi
