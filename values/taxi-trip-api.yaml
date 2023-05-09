@@ -5,5 +5,4 @@ app:
       name: taxi-trip-api
       versionTag: 14edaa9
     env:
-      - key: key
-        value: value
+      KEY: value

@@ -5,5 +5,4 @@ app:
       name: taxi-trip-client
       versionTag: 332f86e
     env:
-      - key: key
-        value: value
+      KEY: value

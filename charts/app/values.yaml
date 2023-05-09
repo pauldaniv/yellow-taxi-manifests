@@ -6,14 +6,13 @@ app:
   replicaCount: 1
   container:
     image:
-      repository: "375158168967.dkr.ecr.us-east-2.amazonaws.com"
-      pullPolicy: Always
+#      repository: "375158168967.dkr.ecr.us-east-2.amazonaws.com"
+      pullPolicy: Never
 
     port: 8080
-    config: []
+    healthCheckPath: /health_check
     env:
-      - key: key
-        value: value
+      DUMMY: dummy
   service:
     type: ClusterIP
     port: 8080

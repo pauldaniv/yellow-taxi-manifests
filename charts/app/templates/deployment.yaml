@@ -23,11 +23,26 @@ spec:
           ports:
               - containerPort: {{ .Values.app.container.port }}
                 name: {{ .Values.app.name }}
+          env:
+            {{- range $key, $value := .Values.app.container.env }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
+            {{- end }}
           livenessProbe:
+            failureThreshold: 6
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
             httpGet:
-              path: /health_check
+              path: {{ .Values.app.container.healthCheckPath | quote }}
               port: {{ .Values.app.container.port }}
           readinessProbe:
+            failureThreshold: 6
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
             httpGet:
-              path: /health_check
+              path: {{ .Values.app.container.healthCheckPath | quote }}
               port: {{ .Values.app.container.port }}
