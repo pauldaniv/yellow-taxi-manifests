@@ -2,7 +2,9 @@ app:
   name: api
   container:
     image:
-      name: taxi-trip-api
-      versionTag: 14edaa9
+      repository: me.local
+      name: yt-api
+      versionTag: latest
     env:
       KEY: value
+      KAFKA_HOSTNAME: kafka.kafka

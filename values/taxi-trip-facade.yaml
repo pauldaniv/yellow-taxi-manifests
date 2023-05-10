@@ -3,7 +3,7 @@ app:
   container:
     image:
       repository: me.local
-      name: ft-facade
+      name: yt-facade
       versionTag: latest
     port: 8081
     healthCheckPath: /v1/health_check
