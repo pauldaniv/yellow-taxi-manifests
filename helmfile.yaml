@@ -1,35 +1,35 @@
 releases:
-#  - name: ingress
-#    chart: ./charts/ingress
-#    values:
-#      - ./values/ingress.yaml
+  - name: ingress
+    chart: ./charts/ingress
+    values:
+      - ./values/ingress.yaml
 
   - name: redis
     namespace: redis
     chart: ./charts/redis
 
-#  - name: kafka
-#    namespace: kafka
-#    chart: ./charts/kafka
-#
-#  - name: zookeeper
-#    namespace: zookeeper
-#    chart: ./charts/zookeeper
-#
-#  - name: yellow-taxi-api
-#    namespace: yellow-taxi
-#    chart: ./charts/app
-#    values:
-#      - ./values/taxi-trip-api.yaml
-#
-#  - name: yellow-taxi-facade
-#    namespace: yellow-taxi
-#    chart: ./charts/app
-#    values:
-#      - ./values/taxi-trip-facade.yaml
-#
-#  - name: yellow-taxi-client
-#    namespace: yellow-taxi
-#    chart: ./charts/app
-#    values:
-#      - ./values/taxi-trip-client.yaml
+  - name: kafka
+    namespace: kafka
+    chart: ./charts/kafka
+
+  - name: zookeeper
+    namespace: zookeeper
+    chart: ./charts/zookeeper
+
+  - name: yellow-taxi-api
+    namespace: yellow-taxi
+    chart: ./charts/app
+    values:
+      - ./values/taxi-trip-api.yaml
+
+  - name: yellow-taxi-facade
+    namespace: yellow-taxi
+    chart: ./charts/app
+    values:
+      - ./values/taxi-trip-facade.yaml
+
+  - name: yellow-taxi-client
+    namespace: yellow-taxi
+    chart: ./charts/app
+    values:
+      - ./values/taxi-trip-client.yaml
