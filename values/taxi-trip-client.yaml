@@ -2,7 +2,8 @@ app:
   name: client
   container:
     image:
-      name: taxi-trip-client
-      versionTag: 332f86e
+      repository: me.local
+      name: yt-client
+      versionTag: latest
     env:
       KEY: value

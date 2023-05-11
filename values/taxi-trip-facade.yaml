@@ -10,3 +10,4 @@ app:
     env:
       KEY: value
       KAFKA_HOSTNAME: kafka.kafka
+      REDIS_HOSTNAME: redis.redis
