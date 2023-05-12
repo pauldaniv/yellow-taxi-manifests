@@ -1,0 +1,9 @@
+job:
+  name: totals
+  container:
+    image:
+      repository: me.local
+      name: yt-totals
+      versionTag: latest
+    env:
+      REDIS_HOSTNAME: redis.redis
