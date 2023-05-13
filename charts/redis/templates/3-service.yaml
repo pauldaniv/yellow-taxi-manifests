@@ -14,4 +14,4 @@ spec:
       protocol: TCP
       targetPort: redis
   selector:
-    app.kubernetes.io/name: redis
+    statefulset.kubernetes.io/pod-name: redis-0
