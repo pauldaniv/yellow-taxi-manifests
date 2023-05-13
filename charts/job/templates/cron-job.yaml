@@ -14,5 +14,9 @@ spec:
             - name: totals
               image: "{{ .Values.job.container.image.repository }}/{{ .Values.job.container.image.name }}:{{ .Values.job.container.image.versionTag }}"
               imagePullPolicy: "{{.Values.image.pullPolicy}}"
-
+              env:
+                { { - range $key, $value := .Values.job.container.env } }
+                - name: { { $key } }
+                  value: { { $value | quote } }
+                { { - end } }
           restartPolicy: OnFailure

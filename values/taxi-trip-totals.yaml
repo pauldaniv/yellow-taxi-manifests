@@ -7,3 +7,5 @@ job:
       versionTag: latest
     env:
       REDIS_HOSTNAME: redis.redis
+      DB_HOST: postgres.db
+      DB_PORT: 5432

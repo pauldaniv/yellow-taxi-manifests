@@ -8,3 +8,5 @@ app:
     env:
       KEY: value
       KAFKA_HOSTNAME: kafka.kafka
+      DB_HOST: postgres.db
+      DB_PORT: 5432
