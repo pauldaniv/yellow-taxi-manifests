@@ -4,39 +4,61 @@ releases:
     chart: ./charts/ingress
     values:
       - ./values/ingress.yaml
+    labels:
+      service: ingress
+
+  - name: postgres
+    namespace: db
+    chart: ./charts/postgres
+    labels:
+      service: db
 
   - name: redis
     namespace: redis
     chart: ./charts/redis
-
-  - name: kafka
-    namespace: kafka
-    chart: ./charts/kafka
+    labels:
+      service: redis
 
   - name: zookeeper
     namespace: zookeeper
     chart: ./charts/zookeeper
+    labels:
+      service: zookeeper
+
+  - name: kafka
+    namespace: kafka
+    chart: ./charts/kafka
+    labels:
+      service: kafka
 
   - name: yellow-taxi-api
     namespace: yellow-taxi
     chart: ./charts/app
     values:
       - ./values/taxi-trip-api.yaml
+    labels:
+      app: yellow-taxi-api
 
   - name: yellow-taxi-facade
     namespace: yellow-taxi
     chart: ./charts/app
     values:
       - ./values/taxi-trip-facade.yaml
+    labels:
+      app: yellow-taxi-facade
 
   - name: yellow-taxi-totals
     namespace: yellow-taxi
     chart: ./charts/job
     values:
       - ./values/taxi-trip-totals.yaml
+    labels:
+      app: yellow-taxi-totals
 
   - name: yellow-taxi-client
     namespace: yellow-taxi
     chart: ./charts/app
     values:
       - ./values/taxi-trip-client.yaml
+    labels:
+      app: yellow-taxi-client

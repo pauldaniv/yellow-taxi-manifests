@@ -38,7 +38,7 @@ spec:
               mountPath: /mnt/
       containers:
         - name: redis
-          image: redis:latest
+          image: "{{.Values.image.repository}}/{{.Values.image.tag}}"
           ports:
             - name: redis
               containerPort: 6379
