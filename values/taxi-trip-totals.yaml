@@ -5,6 +5,7 @@ job:
       repository: me.local
       name: yt-totals
       versionTag: latest
+      pullPolicy: IfNotPresent
     env:
       REDIS_HOSTNAME: redis.redis
       DB_HOST: postgres.db

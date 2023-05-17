@@ -4,7 +4,7 @@ metadata:
   name: totals
 spec:
   schedule: "* * * * *"
-  successfulJobsHistoryLimit: 3
+  successfulJobsHistoryLimit: 2
   failedJobsHistoryLimit: 1
   jobTemplate:
     spec:
@@ -13,7 +13,7 @@ spec:
           containers:
             - name: totals
               image: "{{ .Values.job.container.image.repository }}/{{ .Values.job.container.image.name }}:{{ .Values.job.container.image.versionTag }}"
-              imagePullPolicy: "{{.Values.image.pullPolicy}}"
+              imagePullPolicy: "{{.Values.job.image.pullPolicy}}"
               env:
                 {{- range $key, $value := .Values.job.container.env }}
                 - name: {{ $key }}

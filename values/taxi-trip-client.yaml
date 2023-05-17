@@ -2,7 +2,6 @@ app:
   name: client
   container:
     image:
-      repository: me.local
       name: yt-client
       versionTag: latest
     env:

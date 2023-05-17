@@ -2,7 +2,6 @@ app:
   name: api
   container:
     image:
-      repository: me.local
       name: yt-api
       versionTag: latest
     env:

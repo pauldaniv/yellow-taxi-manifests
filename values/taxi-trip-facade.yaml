@@ -2,7 +2,6 @@ app:
   name: facade
   container:
     image:
-      repository: me.local
       name: yt-facade
       versionTag: latest
     port: 8081
