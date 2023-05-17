@@ -1,0 +1,6 @@
+releases:
+  - name: postgres
+    namespace: db
+    chart: ./charts/postgres
+    labels:
+      service: db

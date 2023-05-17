@@ -1,0 +1,8 @@
+releases:
+  - name: ingress
+    namespace: yellow-taxi
+    chart: ./charts/ingress
+    values:
+      - ./values/ingress.yaml
+    labels:
+      service: ingress

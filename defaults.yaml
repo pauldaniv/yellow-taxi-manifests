@@ -1,18 +1,4 @@
 releases:
-  - name: ingress
-    namespace: yellow-taxi
-    chart: ./charts/ingress
-    values:
-      - ./values/ingress.yaml
-    labels:
-      service: ingress
-
-  - name: postgres
-    namespace: db
-    chart: ./charts/postgres
-    labels:
-      service: db
-
   - name: redis
     namespace: redis
     chart: ./charts/redis

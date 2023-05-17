@@ -31,7 +31,8 @@ elif [[ "$ACTION" = "re-create" ]]; then
   helmfile destroy
   echo "Backoff..."
   sleep 30s
-  helmfile apply
+  helmfile apply --file defaults.yaml
+  helmfile apply --file yt-prod.yaml
   kubectl get ingress
 else
   echo "Unknown action provided: $ACTION. Available actions: $AVAILABLE_ACTIONS"
