@@ -20,15 +20,20 @@ if [[ "$ACTION" = "prepare" ]]; then
   helmfile init
 elif [[ "$ACTION" = "apply" ]]; then
   echo "Applying infrastructure..."
-  helmfile apply
+  helmfile apply --file defaults.yaml
+  helmfile apply --file yt-prod.yaml
   echo "Getting ingress details:"
   kubectl get ingress
 elif [[ "$ACTION" = "destroy" ]]; then
   echo "Destroying infrastructure..."
-  helmfile destroy
+  helmfile destroy --file defaults.yaml
+  helmfile destroy --file local-dev.yaml
+  helmfile destory --file yt-prod.yaml
 elif [[ "$ACTION" = "re-create" ]]; then
   echo "Re-creating infrastructure..."
-  helmfile destroy
+  helmfile destroy --file defaults.yaml
+  helmfile destroy --file local-dev.yaml
+  helmfile destory --file yt-prod.yaml
   echo "Backoff..."
   sleep 30s
   helmfile apply --file defaults.yaml
