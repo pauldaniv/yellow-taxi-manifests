@@ -4,7 +4,7 @@ job:
     image:
       repository: me.local
       name: yt-totals
-      versionTag: f419205
+      versionTag: 3b68f07
       pullPolicy: IfNotPresent
     env:
       REDIS_HOSTNAME: redis.redis
