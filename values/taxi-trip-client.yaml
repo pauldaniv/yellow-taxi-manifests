@@ -3,6 +3,6 @@ app:
   container:
     image:
       name: yt-client
-      versionTag: 9d1eada
+      versionTag: 5901b19
     env:
       KEY: value
