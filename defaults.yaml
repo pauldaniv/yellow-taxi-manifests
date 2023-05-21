@@ -1,9 +1,9 @@
 releases:
-  - name: secrets
-    namespace: default
-    chart: ./charts/secrets
-    labels:
-      service: secrets
+#  - name: secret-manager
+#    namespace: default
+#    chart: ./charts/secrets
+#    labels:
+#      service: secrets
 
   - name: redis
     namespace: redis

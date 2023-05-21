@@ -21,9 +21,11 @@ if [[ "$ACTION" = "prepare" ]]; then
   echo "Running helmfile init"
   helmfile init
 elif [[ "$ACTION" = "apply" ]]; then
+#  echo "Applying CRDs..."
+#  kubectl apply -f k8s/spc.yaml
   echo "Applying infrastructure..."
-  helmfile apply --file defaults.yaml --concurrency 1
-  helmfile apply --file yt-prod.yaml --concurrency 1
+  helmfile apply --file defaults.yaml
+  helmfile apply --file yt-prod.yaml
   echo "Getting ingress details:"
   kubectl get ingress
 elif [[ "$ACTION" = "destroy" ]]; then

@@ -2,9 +2,8 @@ app:
   name: api
   container:
     image:
-      name: yt-api
+      name: taxi-trip-api
       versionTag: latest
-      pullPolicy: IfNotPresent
     env:
       KEY: value
       KAFKA_HOSTNAME: kafka.kafka

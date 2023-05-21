@@ -2,9 +2,8 @@ job:
   name: totals
   container:
     image:
-      name: yt-totals
-      versionTag: 3d2587b
-      pullPolicy: IfNotPresent
+      name: taxi-trip-totals
+      versionTag: latest
     env:
       REDIS_HOSTNAME: redis.redis
       DB_HOST: postgres.db

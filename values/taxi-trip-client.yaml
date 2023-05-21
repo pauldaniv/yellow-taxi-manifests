@@ -2,8 +2,7 @@ app:
   name: client
   container:
     image:
-      name: yt-client
+      name: taxi-trip-client
       versionTag: latest
-      pullPolicy: IfNotPresent
     env:
       KEY: value

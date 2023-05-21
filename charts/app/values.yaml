@@ -6,9 +6,11 @@ app:
   replicaCount: 1
   container:
     image:
-#      repository: "375158168967.dkr.ecr.us-east-2.amazonaws.com"
-      repository: "me.local"
+      repository: "375158168967.dkr.ecr.us-east-2.amazonaws.com"
       pullPolicy: IfNotPresent
+# for local env
+#      repository: "me.local"
+#      pullPolicy: Never
 
     port: 8080
     healthCheckPath: /health_check

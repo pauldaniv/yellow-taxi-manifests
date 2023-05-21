@@ -2,9 +2,8 @@ app:
   name: facade
   container:
     image:
-      name: yt-facade
+      name: taxi-trip-facade
       versionTag: latest
-      pullPolicy: IfNotPresent
     port: 8081
     healthCheckPath: /v1/health_check
     env:
