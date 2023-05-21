@@ -16,12 +16,14 @@ if [[ "$ACTION" = "prepare" ]]; then
   aws eks --region us-east-2 update-kubeconfig --name yellow-taxi
   echo "Adding extra repositories"
   helm repo add nginx-ingress https://helm.nginx.com/stable
+  helm repo add aws-secrets-manager https://aws.github.io/secrets-store-csi-driver-provider-aws
+  helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/chartst
   echo "Running helmfile init"
   helmfile init
 elif [[ "$ACTION" = "apply" ]]; then
   echo "Applying infrastructure..."
-  helmfile apply --file defaults.yaml
-  helmfile apply --file yt-prod.yaml
+  helmfile apply --file defaults.yaml --concurrency 1
+  helmfile apply --file yt-prod.yaml --concurrency 1
   echo "Getting ingress details:"
   kubectl get ingress
 elif [[ "$ACTION" = "destroy" ]]; then
