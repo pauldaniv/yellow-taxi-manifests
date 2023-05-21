@@ -3,6 +3,7 @@ app:
   container:
     image:
       name: yt-client
-      versionTag: 5901b19
+      versionTag: latest
+      pullPolicy: IfNotPresent
     env:
       KEY: value

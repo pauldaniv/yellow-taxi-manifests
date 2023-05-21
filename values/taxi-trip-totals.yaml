@@ -2,7 +2,6 @@ job:
   name: totals
   container:
     image:
-      repository: me.local
       name: yt-totals
       versionTag: 3d2587b
       pullPolicy: IfNotPresent

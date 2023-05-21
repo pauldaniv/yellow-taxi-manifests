@@ -6,7 +6,8 @@ app:
   replicaCount: 1
   container:
     image:
-      repository: "375158168967.dkr.ecr.us-east-2.amazonaws.com"
+#      repository: "375158168967.dkr.ecr.us-east-2.amazonaws.com"
+      repository: "me.local"
       pullPolicy: IfNotPresent
 
     port: 8080

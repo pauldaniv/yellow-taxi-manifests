@@ -4,6 +4,7 @@ app:
     image:
       name: yt-api
       versionTag: latest
+      pullPolicy: IfNotPresent
     env:
       KEY: value
       KAFKA_HOSTNAME: kafka.kafka

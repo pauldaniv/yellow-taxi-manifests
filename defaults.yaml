@@ -1,4 +1,10 @@
 releases:
+  - name: secrets
+    namespace: default
+    chart: ./charts/secrets
+    labels:
+      service: secrets
+
   - name: redis
     namespace: redis
     chart: ./charts/redis

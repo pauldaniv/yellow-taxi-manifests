@@ -1,48 +1,10 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: secrets-store.csi.x-k8s.io/v1
+kind: SecretProviderClass
 metadata:
-  name: {{ .Values.app.name }}
-  labels:
-    app: {{ .Values.app.name }}
-    group: {{ .Values.app.group }}
+  name: aws-secrets
 spec:
-  replicas: {{ .Values.app.replicaCount }}
-  selector:
-    matchLabels:
-      app: {{ .Values.app.name }}
-  template:
-    metadata:
-      labels:
-        app: {{ .Values.app.name }}
-        group: {{ .Values.app.group }}
-    spec:
-      containers:
-        - name: {{ .Values.app.name }}
-          image: "{{ .Values.app.container.image.repository }}/{{ .Values.app.container.image.name }}:{{ .Values.app.container.image.versionTag }}"
-          imagePullPolicy: {{ .Values.app.container.image.pullPolicy }}
-          ports:
-              - containerPort: {{ .Values.app.container.port }}
-                name: {{ .Values.app.name }}
-          env:
-            {{- range $key, $value := .Values.app.container.env }}
-            - name: {{ $key }}
-              value: {{ $value | quote }}
-            {{- end }}
-          livenessProbe:
-            failureThreshold: 6
-            initialDelaySeconds: 15
-            periodSeconds: 10
-            successThreshold: 1
-            timeoutSeconds: 5
-            httpGet:
-              path: {{ .Values.app.container.healthCheckPath | quote }}
-              port: {{ .Values.app.container.port }}
-          readinessProbe:
-            failureThreshold: 6
-            initialDelaySeconds: 5
-            periodSeconds: 10
-            successThreshold: 1
-            timeoutSeconds: 5
-            httpGet:
-              path: {{ .Values.app.container.healthCheckPath | quote }}
-              port: {{ .Values.app.container.port }}
+  provider: aws
+  parameters:
+    objects: |
+      - objectName: "prot_yt_db"
+        objectType: "secretsmanager"
