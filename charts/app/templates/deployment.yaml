@@ -16,14 +16,14 @@ spec:
         app: {{ .Values.app.name }}
         group: {{ .Values.app.group }}
     spec:
-      serviceAccountName: "{{ .Values.app.name }}-service"
+      serviceAccountName: "{{ .Values.app.name }}-sa"
       volumes:
-          - name: secrets-store-inline
-            csi:
-              driver: secrets-store.csi.k8s.io
-              readOnly: true
-              volumeAttributes:
-                secretProviderClass: "yt-secrets"
+        - name: secrets-store-inline
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: "yt-secrets"
       containers:
         - name: {{ .Values.app.name }}
           image: "{{ .Values.app.container.image.repository }}/{{ .Values.app.container.image.name }}:{{ .Values.app.container.image.versionTag }}"
