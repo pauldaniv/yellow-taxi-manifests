@@ -3,6 +3,6 @@ job:
   container:
     image:
       name: taxi-trip-totals
-      versionTag: b88dc3d
+      versionTag: 4ee20a3
     env:
       REDIS_HOSTNAME: redis.redis
