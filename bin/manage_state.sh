@@ -21,8 +21,8 @@ if [[ "$ACTION" = "prepare" ]]; then
   echo "Running helmfile init"
   helmfile init
 elif [[ "$ACTION" = "apply" ]]; then
-#  echo "Applying CRDs..."
-#  kubectl apply -f k8s/spc.yaml
+  echo "Applying CRDs..."
+  kubectl apply -f k8s/spc.yaml
   echo "Applying infrastructure..."
   helmfile apply --file defaults.yaml
   helmfile apply --file yt-prod.yaml
