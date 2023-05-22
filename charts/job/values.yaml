@@ -3,10 +3,10 @@
 # Declare variables to be passed into your templates.
 job:
   replicaCount: 1
-
-  image:
-    repository: "375158168967.dkr.ecr.us-east-2.amazonaws.com"
-    # Overrides the image tag whose default is the chart appVersion.
+  container:
+    image:
+      repository: "375158168967.dkr.ecr.us-east-2.amazonaws.com"
+      # Overrides the image tag whose default is the chart appVersion.
 
   imagePullSecrets: []
   nameOverride: ""
