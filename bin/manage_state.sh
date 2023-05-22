@@ -32,12 +32,12 @@ elif [[ "$ACTION" = "destroy" ]]; then
   echo "Destroying infrastructure..."
   helmfile destroy --file defaults.yaml
   helmfile destroy --file local-dev.yaml
-  helmfile destory --file yt-prod.yaml
+  helmfile destroy --file yt-prod.yaml
 elif [[ "$ACTION" = "re-create" ]]; then
   echo "Re-creating infrastructure..."
   helmfile destroy --file defaults.yaml
   helmfile destroy --file local-dev.yaml
-  helmfile destory --file yt-prod.yaml
+  helmfile destroy --file yt-prod.yaml
   echo "Backoff..."
   sleep 30s
   helmfile apply --file defaults.yaml
