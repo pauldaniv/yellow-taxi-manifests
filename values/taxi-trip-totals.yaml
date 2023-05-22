@@ -6,3 +6,4 @@ job:
       versionTag: 4ee20a3
     env:
       REDIS_HOSTNAME: redis.redis
+      DB_HOST: terraform-20230522181320501000000014.cisxpoiobdgl.us-east-2.rds.amazonaws.com

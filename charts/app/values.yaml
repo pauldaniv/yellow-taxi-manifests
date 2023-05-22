@@ -16,7 +16,7 @@ app:
     healthCheckPath: /health_check
     env:
       DUMMY: dummy
-      DB_HOST: terraform-20230522181320501000000014.cisxpoiobdgl.us-east-2.rds.amazonaws.com:5432
+      DB_HOST: terraform-20230522181320501000000014.cisxpoiobdgl.us-east-2.rds.amazonaws.com
   service:
     type: ClusterIP
     port: 8080
