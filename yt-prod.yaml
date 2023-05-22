@@ -6,3 +6,9 @@ releases:
       - ./values/ingress.yaml
     labels:
       service: ingress
+
+#  - name: autoscaler
+#    namespace: kube-system
+#    chart: ./charts/autoscaler
+#    labels:
+#      service: autoscaler
