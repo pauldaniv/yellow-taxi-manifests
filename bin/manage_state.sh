@@ -26,8 +26,8 @@ elif [[ "$ACTION" = "apply" ]]; then
   echo "Applying CRDs..."
   kubectl apply -f charts/secret/templates/spc.yaml
   echo "Applying infrastructure..."
-  helmfile destroy --file default-apps.yaml
-  helmfile destroy --file default-services.yaml
+  helmfile apply --file default-apps.yaml
+  helmfile apply --file default-services.yaml
   helmfile apply --file yt-prod.yaml
   echo "Getting ingress details:"
   kubectl get ingress
