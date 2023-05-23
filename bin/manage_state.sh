@@ -23,8 +23,8 @@ if [[ "$ACTION" = "prepare" ]]; then
   echo "Running helmfile init"
   helmfile init
 elif [[ "$ACTION" = "apply" ]]; then
-#  echo "Applying CRDs..."
-#  kubectl apply -f charts/secret/templates/spc.yaml
+  echo "Applying CRDs..."
+  kubectl apply -f charts/secret/templates/spc.yaml
   echo "Applying infrastructure..."
   helmfile destroy --file default-apps.yaml
   helmfile destroy --file default-services.yaml
