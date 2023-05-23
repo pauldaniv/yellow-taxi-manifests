@@ -10,7 +10,7 @@ if [[ -z "$ACTION" ]]; then
   exit 1
 fi
 
-if [[ "$ACTION" = "prepare" ]]; then
+function init() {
   echo "Preparing infrastructure..."
   echo "Connecting to cluster"
   aws eks --region us-east-2 update-kubeconfig --name yellow-taxi
@@ -22,31 +22,42 @@ if [[ "$ACTION" = "prepare" ]]; then
   helm upgrade --install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
   echo "Running helmfile init"
   helmfile init
-elif [[ "$ACTION" = "apply" ]]; then
+}
+
+function create() {
   echo "Applying CRDs..."
   kubectl apply -f charts/secret/templates/spc.yaml
   echo "Applying infrastructure..."
   helmfile apply --file default-apps.yaml
   helmfile apply --file default-services.yaml
   helmfile apply --file yt-prod.yaml
-  echo "Getting ingress details:"
-  kubectl get ingress
-elif [[ "$ACTION" = "destroy" ]]; then
+}
+
+function destroy() {
   echo "Destroying infrastructure..."
   helmfile destroy --file default-apps.yaml
   helmfile destroy --file default-services.yaml
   helmfile destroy --file local-dev.yaml
   helmfile destroy --file yt-prod.yaml
+  kubectl delete -f charts/secret/templates/spc.yaml
   helm uninstall secrets-provider-aws -n kube-system
   helm uninstall csi-secrets-store -n kube-system
+}
+
+if [[ "$ACTION" = "prepare" ]]; then
+  init
+elif [[ "$ACTION" = "apply" ]]; then
+  apply
+  echo "Getting ingress details:"
+  kubectl get ingress
+elif [[ "$ACTION" = "destroy" ]]; then
+  destroy
 elif [[ "$ACTION" = "re-create" ]]; then
   echo "Re-creating infrastructure..."
-  helmfile destroy --file default-apps.yaml
-  helmfile destroy --file yt-prod.yaml
+  destroy
   echo "Backoff..."
   sleep 30s
-  helmfile apply --file default-apps.yaml
-  helmfile apply --file yt-prod.yaml
+  create
   kubectl get ingress
 else
   echo "Unknown action provided: $ACTION. Available actions: $AVAILABLE_ACTIONS"
