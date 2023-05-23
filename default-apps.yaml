@@ -5,24 +5,6 @@ releases:
 #    labels:
 #      service: secrets
 
-  - name: redis
-    namespace: redis
-    chart: ./charts/redis
-    labels:
-      service: redis
-
-  - name: zookeeper
-    namespace: zookeeper
-    chart: ./charts/zookeeper
-    labels:
-      service: zookeeper
-
-  - name: kafka
-    namespace: kafka
-    chart: ./charts/kafka
-    labels:
-      service: kafka
-
   - name: yellow-taxi-api
     namespace: yellow-taxi
     chart: ./charts/app

@@ -24,23 +24,27 @@ elif [[ "$ACTION" = "apply" ]]; then
 #  echo "Applying CRDs..."
 #  kubectl apply -f charts/secret/templates/spc.yaml
   echo "Applying infrastructure..."
-  helmfile apply --file defaults.yaml
+  helmfile destroy --file default-apps.yaml
+  helmfile destroy --file default-services.yaml
   helmfile apply --file yt-prod.yaml
   echo "Getting ingress details:"
   kubectl get ingress
 elif [[ "$ACTION" = "destroy" ]]; then
   echo "Destroying infrastructure..."
-  helmfile destroy --file defaults.yaml
+  helmfile destroy --file default-apps.yaml
+  helmfile destroy --file default-services.yaml
   helmfile destroy --file local-dev.yaml
   helmfile destroy --file yt-prod.yaml
 elif [[ "$ACTION" = "re-create" ]]; then
   echo "Re-creating infrastructure..."
-  helmfile destroy --file defaults.yaml
+  helmfile destroy --file default-apps.yaml
+  helmfile destroy --file default-services.yaml
   helmfile destroy --file local-dev.yaml
   helmfile destroy --file yt-prod.yaml
   echo "Backoff..."
   sleep 30s
-  helmfile apply --file defaults.yaml
+  helmfile destroy --file default-apps.yaml
+  helmfile destroy --file default-services.yaml
   helmfile apply --file yt-prod.yaml
   kubectl get ingress
 else

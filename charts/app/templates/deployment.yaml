@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.app.name }}
+  namespace: yellow-taxi
   labels:
     app: {{ .Values.app.name }}
     group: {{ .Values.app.group }}
@@ -16,7 +17,7 @@ spec:
         app: {{ .Values.app.name }}
         group: {{ .Values.app.group }}
     spec:
-      serviceAccountName: "{{ .Values.app.name }}-sa"
+      serviceAccountName: "{{ .Values.app.name }}-service-account"
       volumes:
         - name: secrets-store-inline
           csi:
@@ -37,10 +38,10 @@ spec:
               value: {{ $value | quote }}
             {{- end }}
 
-#          volumeMounts:
-#            - name: secrets-store-inline
-#              mountPath: "/mnt/secrets-store"
-#              readOnly: true
+          volumeMounts:
+            - name: secrets-store-inline
+              mountPath: "/mnt/secrets-store"
+              readOnly: true
           livenessProbe:
             failureThreshold: 6
             initialDelaySeconds: 15
