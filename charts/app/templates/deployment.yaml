@@ -49,7 +49,6 @@ spec:
             successThreshold: 1
             timeoutSeconds: 5
             httpGet:
-              path: /health_check
               path: {{ .Values.app.container.healthCheckPath | quote }}
               port: {{ .Values.app.container.port }}
           readinessProbe:
@@ -59,7 +58,6 @@ spec:
             successThreshold: 1
             timeoutSeconds: 5
             httpGet:
-              path: /health_check
               path: {{ .Values.app.container.healthCheckPath | quote }}
               port: {{ .Values.app.container.port }}
 
