@@ -49,7 +49,7 @@ function destroy() {
 if [[ "$ACTION" = "prepare" ]]; then
   init
 elif [[ "$ACTION" = "apply" ]]; then
-  apply
+  create
   echo "Getting ingress details:"
   kubectl get ingress
 elif [[ "$ACTION" = "destroy" ]]; then
