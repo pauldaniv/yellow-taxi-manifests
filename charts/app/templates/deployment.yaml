@@ -17,7 +17,7 @@ spec:
         app: {{ .Values.app.name }}
         group: {{ .Values.app.group }}
     spec:
-      serviceAccountName: "{{ .Values.app.name }}-service-account"
+      serviceAccountName: "secret-accessor"
       volumes:
         - name: secrets-store-inline
           csi:
