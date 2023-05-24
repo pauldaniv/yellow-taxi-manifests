@@ -3,6 +3,6 @@ app:
   container:
     image:
       name: taxi-trip-api
-      versionTag: 7c07ea6
+      versionTag: 3e7e128
     env:
       KAFKA_HOSTNAME: kafka.kafka
