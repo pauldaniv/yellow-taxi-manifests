@@ -31,6 +31,7 @@ function create() {
 #  helm upgrade --install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws
 #  helm upgrade --install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
   kubectl create namespace yellow-taxi
+  kubectl create namespace external-secrets
 #  kubectl apply -f charts/secret/templates/spc.yaml -n yellow-taxi
 
   echo "Applying infrastructure..."

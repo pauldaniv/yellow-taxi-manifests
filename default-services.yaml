@@ -4,21 +4,21 @@ releases:
     chart: ./charts/secret
     labels:
       service: secrets
-#
-#  - name: redis
-#    namespace: redis
-#    chart: ./charts/redis
-#    labels:
-#      service: redis
-#
-#  - name: zookeeper
-#    namespace: zookeeper
-#    chart: ./charts/zookeeper
-#    labels:
-#      service: zookeeper
-#
-#  - name: kafka
-#    namespace: kafka
-#    chart: ./charts/kafka
-#    labels:
-#      service: kafka
+
+  - name: redis
+    namespace: redis
+    chart: ./charts/redis
+    labels:
+      service: redis
+
+  - name: zookeeper
+    namespace: zookeeper
+    chart: ./charts/zookeeper
+    labels:
+      service: zookeeper
+
+  - name: kafka
+    namespace: kafka
+    chart: ./charts/kafka
+    labels:
+      service: kafka
