@@ -1,7 +1,7 @@
 releases:
   - name: secret-manager
     namespace: default
-    chart: ./charts/secrets
+    chart: ./charts/secret
     labels:
       service: secrets
 
