@@ -45,9 +45,6 @@ function destroy() {
   helmfile destroy --file default-services.yaml
   helmfile destroy --file local-dev.yaml
   helmfile destroy --file yt-prod.yaml
-  kubectl delete -f charts/secret/templates/spc.yaml
-  helm uninstall secrets-provider-aws -n kube-system
-  helm uninstall csi-secrets-store -n kube-system
 }
 
 if [[ "$ACTION" = "prepare" ]]; then
