@@ -20,8 +20,8 @@ function init() {
 #  helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
 #  helm upgrade --install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws
 #  helm upgrade --install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
-  helm install external-secrets external-secrets/external-secrets --namespace external-secrets --create-namespace --set installCRDs=true
   helm repo add external-secrets https://charts.external-secrets.io
+  helm install external-secrets external-secrets/external-secrets --namespace external-secrets --create-namespace --set installCRDs=true
   echo "Running helmfile init"
   helmfile init
 }
