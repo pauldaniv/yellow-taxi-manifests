@@ -15,21 +15,24 @@ function init() {
   echo "Connecting to cluster"
   aws eks --region us-east-2 update-kubeconfig --name yellow-taxi
   echo "Adding extra repositories"
-  helm repo add nginx-ingress https://helm.nginx.com/stable
-  helm repo add aws-secrets-manager https://aws.github.io/secrets-store-csi-driver-provider-aws
-  helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
-  helm upgrade --install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws
-  helm upgrade --install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
+#  helm repo add nginx-ingress https://helm.nginx.com/stable
+#  helm repo add aws-secrets-manager https://aws.github.io/secrets-store-csi-driver-provider-aws
+#  helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
+#  helm upgrade --install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws
+#  helm upgrade --install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
+  helm install external-secrets external-secrets/external-secrets --namespace external-secrets --create-namespace --set installCRDs=true
+  helm repo add external-secrets https://charts.external-secrets.io
   echo "Running helmfile init"
   helmfile init
 }
 
 function create() {
   echo "Applying CRDs..."
-  helm upgrade --install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws
-  helm upgrade --install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
+#  helm upgrade --install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws
+#  helm upgrade --install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
   kubectl create namespace yellow-taxi
-  kubectl apply -f charts/secret/templates/spc.yaml -n yellow-taxi
+#  kubectl apply -f charts/secret/templates/spc.yaml -n yellow-taxi
+
   echo "Applying infrastructure..."
   helmfile apply --file default-apps.yaml
   helmfile apply --file default-services.yaml

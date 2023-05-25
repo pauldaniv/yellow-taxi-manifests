@@ -1,9 +1,9 @@
 releases:
-#  - name: secret-manager
-#    namespace: default
-#    chart: ./charts/secrets
-#    labels:
-#      service: secrets
+  - name: secret-manager
+    namespace: default
+    chart: ./charts/secrets
+    labels:
+      service: secrets
 
   - name: yellow-taxi-api
     namespace: yellow-taxi
