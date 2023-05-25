@@ -1,10 +1,4 @@
 releases:
-  - name: external-secrets
-    namespace: external-secrets
-    chart: ./charts/secret
-    labels:
-      service: secrets
-
   - name: yellow-taxi-api
     namespace: yellow-taxi
     chart: ./charts/app
