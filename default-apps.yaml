@@ -1,6 +1,6 @@
 releases:
-  - name: secret-manager
-    namespace: default
+  - name: external-secrets
+    namespace: external-secrets
     chart: ./charts/secret
     labels:
       service: secrets
