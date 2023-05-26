@@ -4,6 +4,9 @@ job:
     image:
       name: taxi-trip-totals
       versionTag: 2e884e6
-    env:
+    plainEnv:
       REDIS_HOSTNAME: redis.redis
       DB_HOST: terraform-20230526101117284400000014.cisxpoiobdgl.us-east-2.rds.amazonaws.com
+    secretEnv:
+      DB_PASS: db-pass1
+      MY_TEST_ENV: db-pass1

@@ -57,7 +57,7 @@ elif [[ "$ACTION" = "re-create" ]]; then
   echo "Re-creating infrastructure..."
   destroy
   echo "Backoff..."
-  sleep 30s
+  sleep 14s
   create
   kubectl get ingress
 else
