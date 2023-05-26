@@ -8,7 +8,11 @@ job:
     image:
       repository: "375158168967.dkr.ecr.us-east-2.amazonaws.com"
       # Overrides the image tag whose default is the chart appVersion.
-
+    plainEnv:
+      DUMMY: key
+    secretEnv:
+      DB_HOST: DB_PASSWORD
+      MY_TEST_ENV: DB_PASSWORD
   imagePullSecrets: []
   nameOverride: ""
   fullnameOverride: ""

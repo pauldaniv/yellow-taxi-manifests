@@ -16,7 +16,16 @@ spec:
               image: "{{ .Values.job.container.image.repository }}/{{ .Values.job.container.image.name }}:{{ .Values.job.container.image.versionTag }}"
               imagePullPolicy: "{{.Values.job.container.image.pullPolicy}}"
               env:
-                {{- range $key, $value := .Values.job.container.env }}
+                {{- range $key, $value := .Values.job.container.plainEnv }}
+                - name: {{ $key }}
+                  value: {{ $value | quote }}
+                {{- end }}
+                {{- range $key, $value := .Values.job.container.secretEnv }}
+                - name: {{ $key }}
+                  valueFrom:
+                    secretKeyRef:
+                      name: DB_PASSWORD
+                      key: password
                 - name: {{ $key }}
                   value: {{ $value | quote }}
                 {{- end }}
