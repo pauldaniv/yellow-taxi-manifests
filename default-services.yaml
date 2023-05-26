@@ -1,5 +1,6 @@
 releases:
   - name: external-secrets
+    namespace: yellow-taxi
     chart: ./charts/secret
     labels:
       service: secrets

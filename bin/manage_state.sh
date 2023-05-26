@@ -15,12 +15,12 @@ function init() {
   echo "Connecting to cluster"
   aws eks --region us-east-2 update-kubeconfig --name yellow-taxi
   echo "Adding extra repositories"
-#  helm repo add aws-secrets-manager https://aws.github.io/secrets-store-csi-driver-provider-aws
-#  helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
+  helm repo add aws-secrets-manager https://aws.github.io/secrets-store-csi-driver-provider-aws
+  helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
 #  helm upgrade --install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws
 #  helm upgrade --install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
-  helm repo add external-secrets https://charts.external-secrets.io
-#  helm upgrade --install external-secrets external-secrets/external-secrets --namespace external-secrets --create-namespace --set installCRDs=true
+#  helm repo add external-secrets https://charts.external-secrets.io
+#  helm upgrade --install external-secrets external-secrets/external-secrets --namespace yellow-taxi --create-namespace --set installCRDs=true
   echo "Running helmfile init"
   helmfile init
 }
@@ -30,21 +30,20 @@ function create() {
 #  helm upgrade --install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws
 #  helm upgrade --install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
   kubectl create namespace yellow-taxi
-  kubectl create namespace external-secrets
+#  kubectl create namespace external-secrets
 #  kubectl apply -f charts/secret/templates/spc.yaml -n yellow-taxi
 
   echo "Applying infrastructure..."
-  helmfile apply --file default-apps.yaml
   helmfile apply --file default-services.yaml
   helmfile apply --file yt-prod.yaml
+  helmfile apply --file default-apps.yaml
 }
 
 function destroy() {
   echo "Destroying infrastructure..."
   helmfile destroy --file default-apps.yaml
-  helmfile destroy --file default-services.yaml
-  helmfile destroy --file local-dev.yaml
   helmfile destroy --file yt-prod.yaml
+  helmfile destroy --file default-services.yaml
 }
 
 if [[ "$ACTION" = "prepare" ]]; then

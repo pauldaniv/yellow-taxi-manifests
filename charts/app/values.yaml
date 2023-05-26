@@ -18,10 +18,7 @@ app:
       DUMMY: dummy
       DB_HOST: terraform-20230522181320501000000014.cisxpoiobdgl.us-east-2.rds.amazonaws.com
     secretEnv:
-      - name: DB_PASS
-        valueFrom:
-          secretKeyRef:
-            name: db-pass
+      DB_PASS: db-pass
 
   service:
     type: ClusterIP

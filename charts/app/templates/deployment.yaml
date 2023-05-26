@@ -30,10 +30,12 @@ spec:
             - name: {{ $key }}
               value: {{ $value | quote }}
             {{- end }}
-            {{- range $key, $value := .Values.app.container.secretEnv }}
-            - name: {{ $key }}
-              value: {{ $value | quote }}
-            {{- end }}
+{{/*            {{- range $key, $value := .Values.app.container.secretEnv }}*/}}
+{{/*            - name: {{ $key }}*/}}
+{{/*              valueFrom:*/}}
+{{/*                secretKeyRef:*/}}
+{{/*                  name: {{ $value | quote }}*/}}
+{{/*            {{- end }}*/}}
           volumeMounts:
             - name: secrets-store-inline
               mountPath: "/mnt/secrets-store"
