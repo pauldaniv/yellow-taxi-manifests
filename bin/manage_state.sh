@@ -17,18 +17,15 @@ function init() {
   echo "Adding extra repositories"
   helm repo add aws-secrets-manager https://aws.github.io/secrets-store-csi-driver-provider-aws
   helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
-#  helm upgrade --install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws
-#  helm upgrade --install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
 #  helm repo add external-secrets https://charts.external-secrets.io
-#  helm upgrade --install external-secrets external-secrets/external-secrets --namespace yellow-taxi --create-namespace --set installCRDs=true
   echo "Running helmfile init"
   helmfile init
 }
 
 function create() {
   echo "Applying CRDs..."
-#  helm upgrade --install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws
-#  helm upgrade --install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
+  helm upgrade --install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws
+  helm upgrade --install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
   kubectl create namespace yellow-taxi
 #  kubectl create namespace external-secrets
 #  kubectl apply -f charts/secret/templates/spc.yaml -n yellow-taxi
@@ -44,6 +41,8 @@ function destroy() {
   helmfile destroy --file default-apps.yaml
   helmfile destroy --file yt-prod.yaml
   helmfile destroy --file default-services.yaml
+  helm uninstall -n kube-system csi-secrets-store
+  helm uninstall -n kube-system secrets-provider-aws
 }
 
 if [[ "$ACTION" = "prepare" ]]; then
