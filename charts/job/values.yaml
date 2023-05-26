@@ -12,7 +12,7 @@ job:
       DUMMY: key
     secretEnv:
       DB_HOST: db-pass
-      MY_TEST_ENV: DB_PASSWORD
+      MY_TEST_ENV: db-pass
   imagePullSecrets: []
   nameOverride: ""
   fullnameOverride: ""
