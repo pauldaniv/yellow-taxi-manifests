@@ -15,7 +15,6 @@ function init() {
   echo "Connecting to cluster"
   aws eks --region us-east-2 update-kubeconfig --name yellow-taxi
   echo "Adding extra repositories"
-#  helm repo add nginx-ingress https://helm.nginx.com/stable
 #  helm repo add aws-secrets-manager https://aws.github.io/secrets-store-csi-driver-provider-aws
 #  helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
 #  helm upgrade --install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws

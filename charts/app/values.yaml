@@ -14,9 +14,15 @@ app:
 
     port: 8080
     healthCheckPath: /health_check
-    env:
+    plainEnv:
       DUMMY: dummy
       DB_HOST: terraform-20230522181320501000000014.cisxpoiobdgl.us-east-2.rds.amazonaws.com
+    secretEnv:
+      - name: DB_PASS
+        valueFrom:
+          secretKeyRef:
+            name: db-pass
+
   service:
     type: ClusterIP
     port: 8080

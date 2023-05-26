@@ -26,11 +26,14 @@ spec:
             - containerPort: {{ .Values.app.container.port }}
               name: {{ .Values.app.name }}
           env:
-            {{- range $key, $value := .Values.app.container.env }}
+            {{- range $key, $value := .Values.app.container.plainEnv }}
             - name: {{ $key }}
               value: {{ $value | quote }}
             {{- end }}
-
+            {{- range $key, $value := .Values.app.container.secretEnv }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
+            {{- end }}
           volumeMounts:
             - name: secrets-store-inline
               mountPath: "/mnt/secrets-store"
