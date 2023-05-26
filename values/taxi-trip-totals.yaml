@@ -3,7 +3,7 @@ job:
   container:
     image:
       name: taxi-trip-totals
-      versionTag: 4ee20a3
+      versionTag: 2e884e6
     env:
       REDIS_HOSTNAME: redis.redis
       DB_HOST: terraform-20230526101117284400000014.cisxpoiobdgl.us-east-2.rds.amazonaws.com
