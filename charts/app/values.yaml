@@ -16,7 +16,7 @@ app:
     healthCheckPath: /health_check
     plainEnv:
       DUMMY: dummy
-      DB_HOST: terraform-20230522181320501000000014.cisxpoiobdgl.us-east-2.rds.amazonaws.com
+      DB_HOST: terraform-20230526101117284400000014.cisxpoiobdgl.***.rds.amazonaws.com
     secretEnv:
       DB_PASS: db-pass
 
