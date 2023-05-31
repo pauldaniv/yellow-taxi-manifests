@@ -11,7 +11,6 @@ job:
     plainEnv:
       DUMMY: key
     secretEnv:
-      DB_PASS: db-pass
       MY_TEST_ENV: db-pass
   imagePullSecrets: []
   nameOverride: ""

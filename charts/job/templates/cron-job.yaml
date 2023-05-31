@@ -25,7 +25,7 @@ spec:
                   valueFrom:
                     secretKeyRef:
                       name: {{ $value | quote }}
-                      key: {{ $value | quote }}
+                      key: "{{ $value }}-key"
                 {{- end }}
               volumeMounts:
                 - name: secrets-store-inline
