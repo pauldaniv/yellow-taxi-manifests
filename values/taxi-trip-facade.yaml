@@ -6,7 +6,7 @@ app:
       versionTag: 3ff9b97
     port: 8081
     healthCheckPath: /v1/health_check
-    env:
+    plainEnv:
       KEY: value
       KAFKA_HOSTNAME: kafka.kafka
       REDIS_HOSTNAME: redis.redis

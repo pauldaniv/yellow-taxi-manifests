@@ -16,9 +16,8 @@ app:
     healthCheckPath: /health_check
     plainEnv:
       DUMMY: dummy
-      DB_HOST: terraform-20230526101117284400000014.cisxpoiobdgl.***.rds.amazonaws.com
     secretEnv:
-      DB_PASS: db-pass
+      DUMMY1: db-pass
 
   service:
     type: ClusterIP

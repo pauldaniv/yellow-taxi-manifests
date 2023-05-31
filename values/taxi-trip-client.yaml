@@ -4,5 +4,5 @@ app:
     image:
       name: taxi-trip-client
       versionTag: 5901b19
-    env:
+    plainEnv:
       KEY: value

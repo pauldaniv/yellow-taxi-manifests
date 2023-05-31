@@ -4,5 +4,8 @@ app:
     image:
       name: taxi-trip-api
       versionTag: 1743bba
-    env:
+    plainEnv:
       KAFKA_HOSTNAME: kafka.kafka
+      DB_HOST: terraform-20230531180706779100000014.cisxpoiobdgl.us-east-2.rds.amazonaws.com
+    secretEnv:
+      DB_PASS: db-pass
