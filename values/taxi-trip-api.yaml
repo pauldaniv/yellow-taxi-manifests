@@ -6,6 +6,6 @@ app:
       versionTag: 258341e
     plainEnv:
       KAFKA_HOSTNAME: kafka.kafka
-      DB_HOST: terraform-20230605201504574500000013.cisxpoiobdgl.us-east-2.rds.amazonaws.com
+      DB_HOST: terraform-20230606180436349800000013.cisxpoiobdgl.us-east-2.rds.amazonaws.com
     secretEnv:
       DB_PASS: db-pass
