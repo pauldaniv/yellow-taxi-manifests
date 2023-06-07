@@ -32,6 +32,8 @@ function create() {
 
   echo "Applying infrastructure..."
   helmfile apply --file default-services.yaml
+  #todo: remove once tested connection with RDS
+  helmfile apply --file local-dev.yaml
   helmfile apply --file yt-prod.yaml
   helmfile apply --file default-apps.yaml
 }
@@ -40,6 +42,8 @@ function destroy() {
   echo "Destroying infrastructure..."
   helmfile destroy --file default-apps.yaml
   helmfile destroy --file yt-prod.yaml
+  #todo: remove once tested connection with RDS
+  helmfile destroy --file local-dev.yaml
   helmfile destroy --file default-services.yaml
   helm uninstall -n kube-system csi-secrets-store
   helm uninstall -n kube-system secrets-provider-aws
