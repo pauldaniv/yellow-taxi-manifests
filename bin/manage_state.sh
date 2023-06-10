@@ -32,8 +32,6 @@ function create() {
 
   echo "Applying infrastructure..."
   helmfile apply --file default-services.yaml
-  #todo: remove once tested connection with RDS
-  helmfile apply --file local-dev.yaml
   helmfile apply --file yt-prod.yaml
   helmfile apply --file default-apps.yaml
 }
