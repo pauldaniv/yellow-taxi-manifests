@@ -6,10 +6,3 @@ ingress:
           backend:
             serviceName: api
             servicePort: 8080
-
-    - host: client.yellow-taxi.me
-      paths:
-        - path: /
-          backend:
-            serviceName: client
-            servicePort: 8080

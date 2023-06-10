@@ -22,11 +22,3 @@ releases:
       - ./values/taxi-trip-totals.yaml
     labels:
       app: yellow-taxi-totals
-
-  - name: yellow-taxi-client
-    namespace: yellow-taxi
-    chart: ./charts/app
-    values:
-      - ./values/taxi-trip-client.yaml
-    labels:
-      app: yellow-taxi-client
