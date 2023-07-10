@@ -50,7 +50,7 @@ if [[ "$ACTION" = "prepare" ]]; then
 elif [[ "$ACTION" = "apply" ]]; then
   create
   echo "Getting ingress details:"
-  kubectl get ingress
+  kubectl get ingress -n yellow-taxi
 elif [[ "$ACTION" = "destroy" ]]; then
   destroy
 elif [[ "$ACTION" = "re-create" ]]; then
@@ -59,7 +59,7 @@ elif [[ "$ACTION" = "re-create" ]]; then
   echo "Backoff..."
   sleep 14s
   create
-  kubectl get ingress
+  kubectl get ingress -n yellow-taxi
 else
   echo "Unknown action provided: $ACTION. Available actions: $AVAILABLE_ACTIONS"
 fi
