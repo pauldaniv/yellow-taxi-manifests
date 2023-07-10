@@ -23,3 +23,4 @@ jobs:
       - name: Sync
         if: github.ref == 'refs/heads/main'
         run: ./bin/manage_state.sh apply
+
