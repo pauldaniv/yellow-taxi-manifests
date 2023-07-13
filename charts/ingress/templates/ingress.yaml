@@ -3,9 +3,9 @@ kind: Ingress
 metadata:
   name: {{ .Values.ingress.name }}
   annotations:
-    certmanager.k8s.io/cluster-issuer: cluster-issuer-letsencrypt
+    certmanager.k8s.io/cluster-issuer: cert-manager/cluster-issuer-letsencrypt
     kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/scheme: cert-manager/internet-facing
+    alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
 spec:
   rules:
