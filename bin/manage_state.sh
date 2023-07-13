@@ -50,6 +50,7 @@ function destroy() {
   helm uninstall -n kube-system csi-secrets-store
   helm uninstall -n kube-system secrets-provider-aws
   helm uninstall -n yellow-taxi cert-manager
+  helm uninstall -n cert-manager cert-manager
 }
 
 if [[ "$ACTION" = "prepare" ]]; then
