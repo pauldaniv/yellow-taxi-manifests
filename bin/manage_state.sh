@@ -18,6 +18,7 @@ function init() {
   helm repo add aws-secrets-manager https://aws.github.io/secrets-store-csi-driver-provider-aws
   helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
   helm repo add jetstack https://charts.jetstack.io
+  helm repo update
 #  helm repo add external-secrets https://charts.external-secrets.io
   echo "Running helmfile init"
   helmfile init
@@ -28,7 +29,8 @@ function create() {
   kubectl create namespace yellow-taxi
   helm upgrade --install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws
   helm upgrade --install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver --set syncSecret.enabled=true
-  helm upgrade --install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.9.1 --set installCRDs=true
+#  helm upgrade --install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.9.1 --set installCRDs=true
+  helm upgrade --install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.12.0 --set installCRDs=true
   # switch away from external secrets for now
 #  kubectl create namespace external-secrets
 #  kubectl apply -f charts/secret/templates/spc.yaml -n yellow-taxi
@@ -47,10 +49,13 @@ function destroy() {
   helmfile destroy --file default-apps.yaml
   helmfile destroy --file yt-prod.yaml
   helmfile destroy --file default-services.yaml
-  helm uninstall -n kube-system csi-secrets-store
-  helm uninstall -n kube-system secrets-provider-aws
-  helm uninstall -n yellow-taxi cert-manager
-  helm uninstall -n cert-manager cert-manager
+  helm uninstall --namespace kube-system csi-secrets-store
+  helm uninstall --namespace kube-system secrets-provider-aws
+  helm uninstall --namespace yellow-taxi cert-manager
+  helm uninstall --namespace cert-manager cert-manager
+  helm uninstall cert-manager --namespace cert-manager
+  kubectl delete namespace cert-manager
+  kubectl delete namespace yellow-taxi
 }
 
 if [[ "$ACTION" = "prepare" ]]; then
