@@ -6,6 +6,6 @@ job:
       versionTag: 7d46439
     plainEnv:
       REDIS_HOSTNAME: redis.redis
-      DB_HOST: terraform-20230713173050733800000013.cisxpoiobdgl.***.rds.amazonaws.com
+      DB_HOST: terraform-20230713173050733800000013.cisxpoiobdgl.us-east-2.rds.amazonaws.com
     secretEnv:
       DB_PASS: db-pass
