@@ -17,6 +17,7 @@ function init() {
   echo "Adding extra repositories"
   helm repo add aws-secrets-manager https://aws.github.io/secrets-store-csi-driver-provider-aws
   helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
+  helm repo add jetstack https://charts.jetstack.io
 #  helm repo add external-secrets https://charts.external-secrets.io
   echo "Running helmfile init"
   helmfile init
@@ -26,7 +27,9 @@ function create() {
   echo "Applying CRDs..."
   helm upgrade --install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws
   helm upgrade --install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver --set syncSecret.enabled=true
+  helm upgrade --install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.9.1 --set installCRDs=true
   kubectl create namespace yellow-taxi
+  # switch away from external secrets for now
 #  kubectl create namespace external-secrets
 #  kubectl apply -f charts/secret/templates/spc.yaml -n yellow-taxi
 
@@ -34,6 +37,9 @@ function create() {
   helmfile apply --file default-services.yaml
   helmfile apply --file yt-prod.yaml
   helmfile apply --file default-apps.yaml
+
+  echo "Getting ingress details:"
+  kubectl get ingress -n yellow-taxi
 }
 
 function destroy() {
@@ -43,14 +49,13 @@ function destroy() {
   helmfile destroy --file default-services.yaml
   helm uninstall -n kube-system csi-secrets-store
   helm uninstall -n kube-system secrets-provider-aws
+  helm uninstall -n cert-manager cert-manager
 }
 
 if [[ "$ACTION" = "prepare" ]]; then
   init
 elif [[ "$ACTION" = "apply" ]]; then
   create
-  echo "Getting ingress details:"
-  kubectl get ingress -n yellow-taxi
 elif [[ "$ACTION" = "destroy" ]]; then
   destroy
 elif [[ "$ACTION" = "re-create" ]]; then
@@ -59,7 +64,6 @@ elif [[ "$ACTION" = "re-create" ]]; then
   echo "Backoff..."
   sleep 14s
   create
-  kubectl get ingress -n yellow-taxi
 else
   echo "Unknown action provided: $ACTION. Available actions: $AVAILABLE_ACTIONS"
 fi
