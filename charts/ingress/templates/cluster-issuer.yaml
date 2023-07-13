@@ -7,9 +7,9 @@ spec:
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     email: paulsegfault@gmail.com
   privateKeySecretRef:
-    name: cluster-letsencrypt
+    name: cluster-issuer-letsencrypt
 solvers:
   - http01:
       ingress:
-        class: traefik
+        class: nginx
     selector: {}
