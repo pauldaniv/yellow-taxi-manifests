@@ -3,11 +3,12 @@ kind: Ingress
 metadata:
   name: {{ .Values.ingress.name }}
   annotations:
-    certmanager.io/cluster-issuer: cert-manager/cluster-issuer-letsencrypt
+    cert-manager.io/cluster-issuer: cluster-issuer-letsencrypt
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
 spec:
+{{/*  ingressClassName: external-nginx*/}}
   rules:
     {{- range .Values.ingress.hosts }}
     - host: {{ .host | quote }}
