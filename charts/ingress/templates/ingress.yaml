@@ -8,7 +8,7 @@ metadata:
     nlb.ingress.kubernetes.io/scheme: internet-facing
     nlb.ingress.kubernetes.io/target-type: ip
 spec:
-  ingressClassName: external-nginx
+  ingressClassName: nginx
   rules:
     {{- range .Values.ingress.hosts }}
     - host: {{ .host | quote }}
