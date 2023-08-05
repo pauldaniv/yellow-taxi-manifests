@@ -14,8 +14,6 @@ controller:
 ingress:
   name: ingress-service
   replicaCount: 1
-  annotations:
-    class: nginx
   hosts:
     - host: dummy
       paths:
