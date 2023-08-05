@@ -5,8 +5,8 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: cluster-issuer-letsencrypt
 {{/*    kubernetes.io/ingress.class: alb*/}}
-{{/*    alb.ingress.kubernetes.io/scheme: internet-facing*/}}
-{{/*    alb.ingress.kubernetes.io/target-type: ip*/}}
+    nlb.ingress.kubernetes.io/scheme: internet-facing
+    nlb.ingress.kubernetes.io/target-type: ip
 spec:
   ingressClassName: external-nginx
   rules:
