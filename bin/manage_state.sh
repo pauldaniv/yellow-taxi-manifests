@@ -18,6 +18,7 @@ function init() {
   helm repo add aws-secrets-manager https://aws.github.io/secrets-store-csi-driver-provider-aws
   helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
   helm repo add jetstack https://charts.jetstack.io
+  helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
   helm repo update
 #  helm repo add external-secrets https://charts.external-secrets.io
   echo "Running helmfile init"
