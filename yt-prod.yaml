@@ -7,6 +7,12 @@ releases:
     labels:
       service: ingress
 
+  - name: cert-manager
+    namespace: cert-manager
+    chart: ./charts/cert-manager
+    labels:
+      service: cert-manager
+
 #  - name: autoscaler
 #    namespace: kube-system
 #    chart: ./charts/autoscaler
