@@ -22,6 +22,6 @@ jobs:
         run: ./bin/manage_state.sh prepare
       - name: Sync
         if: github.ref == 'refs/heads/main'
-        run: ./bin/manage_state.sh re-create
+        run: ./bin/manage_state.sh destroy
 
 
