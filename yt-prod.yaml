@@ -15,7 +15,7 @@ releases:
     labels:
       service: ingress
     needs:
-      - cert-manager
+      - cert-manager/cert-manager
 
 
 #  - name: autoscaler
