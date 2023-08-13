@@ -11,7 +11,7 @@ releases:
     namespace: cert-manager
     chart: ./charts/cert-manager
     values:
-      - ./charts/values.yaml
+      - ./charts/cert-manager/values.yaml
     labels:
       service: cert-manager
 
