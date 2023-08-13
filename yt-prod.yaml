@@ -6,6 +6,8 @@ releases:
       - ./values/ingress.yaml
     labels:
       service: ingress
+    requires:
+      - cert-manager
 
   - name: cert-manager
     namespace: cert-manager
