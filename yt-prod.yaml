@@ -1,4 +1,12 @@
 releases:
+  - name: cert-manager
+    namespace: cert-manager
+    chart: ./charts/cert-manager
+    values:
+      - ./charts/cert-manager/values.yaml
+    labels:
+      service: cert-manager
+
   - name: ingress
     namespace: yellow-taxi
     chart: ./charts/ingress
@@ -9,13 +17,6 @@ releases:
     needs:
       - cert-manager
 
-  - name: cert-manager
-    namespace: cert-manager
-    chart: ./charts/cert-manager
-    values:
-      - ./charts/cert-manager/values.yaml
-    labels:
-      service: cert-manager
 
 #  - name: autoscaler
 #    namespace: kube-system
