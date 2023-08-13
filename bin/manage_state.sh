@@ -51,9 +51,7 @@ function destroy() {
   helmfile destroy --file default-services.yaml
   helm uninstall --namespace kube-system csi-secrets-store
   helm uninstall --namespace kube-system secrets-provider-aws
-  helm uninstall --namespace yellow-taxi cert-manager
   helm uninstall --namespace cert-manager cert-manager
-  helm uninstall cert-manager --namespace cert-manager
   kubectl delete namespace cert-manager
   kubectl delete namespace yellow-taxi
 }
