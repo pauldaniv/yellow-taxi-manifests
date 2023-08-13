@@ -9,10 +9,10 @@ spec:
     privateKeySecretRef:
       name: issuer-letsencrypt
     solvers:
-{{/*      - dns01:*/}}
-{{/*          route53:*/}}
-{{/*            region: us-east-2*/}}
-{{/*            hostedZoneID: Z02168091Y0A5AE7WPE56*/}}
-      - http01:
-          ingress:
-            class: external-nginx
+      - dns01:
+          route53:
+            region: us-east-2
+            hostedZoneID: Z0938423N4NI5B26E2YF
+{{/*      - http01:*/}}
+{{/*          ingress:*/}}
+{{/*            class: external-nginx*/}}

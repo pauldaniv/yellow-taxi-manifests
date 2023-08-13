@@ -1,9 +1,5 @@
 cert-manager:
   installCRDs: true
-  prometheus:
-    enabled: true
-    servicemonitor:
-      enabled: true
   # DNS-01 Route53
   serviceAccount:
     annotations:
