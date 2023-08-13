@@ -3,7 +3,7 @@ kind: Issuer
 metadata:
   name: issuer-letsencrypt
   annotations:
-    helm.sh/hook": post-install,post-upgrade
+    helm.sh/hook: post-install,post-upgrade
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
