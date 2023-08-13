@@ -6,3 +6,4 @@ cert-manager:
       eks.amazonaws.com/role-arn: arn:aws:iam::375158168967:role/eks-cert-manager-acme
   extraArgs:
     - --issuer-ambient-credentials
+    - --dns01-recursive-nameservers=kube-dns.kube-system.svc.cluster.local:53
