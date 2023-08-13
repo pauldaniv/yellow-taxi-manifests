@@ -12,7 +12,7 @@ spec:
       - dns01:
           route53:
             region: us-east-2
-            hostedZoneID: Z1042193JPK8JIW9RFJ
+            hostedZoneID: Z1042193JPK8JIW9RFJO
 {{/*      - http01:*/}}
 {{/*          ingress:*/}}
 {{/*            class: external-nginx*/}}
