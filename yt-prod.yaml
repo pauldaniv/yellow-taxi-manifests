@@ -6,16 +6,16 @@ releases:
       - ./values/ingress.yaml
     labels:
       service: ingress
-    requires:
-      - cert-manager
-
-  - name: cert-manager
-    namespace: cert-manager
-    chart: ./charts/cert-manager
-    values:
-      - ./charts/cert-manager/values.yaml
-    labels:
-      service: cert-manager
+#    requires:
+#      - cert-manager
+#
+#  - name: cert-manager
+#    namespace: cert-manager
+#    chart: ./charts/cert-manager
+#    values:
+#      - ./charts/cert-manager/values.yaml
+#    labels:
+#      service: cert-manager
 
 #  - name: autoscaler
 #    namespace: kube-system
