@@ -14,7 +14,7 @@ spec:
       - dns01:
           route53:
             region: us-east-2
-            hostedZoneID: Z1042193JPK8JIW9RFJO
+            hostedZoneID: Z06416532XSNCG31SKCMA
 {{/*      - http01:*/}}
 {{/*          ingress:*/}}
 {{/*            class: external-nginx*/}}
