@@ -5,5 +5,5 @@ serviceAccount:
     eks.amazonaws.com/role-arn: arn:aws:iam::375158168967:role/eks-cert-manager-acme
 extraArgs:
   - --issuer-ambient-credentials
-  - --dns01-recursive-nameservers-only
-  - --dns01-recursive-nameservers=8.8.8.8:53,1.1.1.1:53
+#  - --dns01-recursive-nameservers-only
+#  - --dns01-recursive-nameservers=8.8.8.8:53,1.1.1.1:53
