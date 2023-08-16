@@ -7,5 +7,4 @@ cert-manager:
   extraArgs:
     - --issuer-ambient-credentials
     - --dns01-recursive-nameservers-only
-    - --dns01-recursive-nameservers=8.8.8.8:53,1.1.1.1:53
-#    - --dns01-recursive-nameservers=10.0.38.214:53,10.0.46.148:53
+    - --dns01-recursive-nameservers=10.0.38.214:53,10.0.46.148:53
