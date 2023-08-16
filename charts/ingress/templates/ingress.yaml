@@ -12,7 +12,7 @@ spec:
   ingressClassName: external-nginx
   rules:
     {{- range .Values.ingress.hosts }}
-    - host: {{ .host | quote }}
+    - host: {{ .host }}
       http:
         paths:
           {{- range .paths }}
@@ -25,9 +25,9 @@ spec:
                   number: {{ .backend.servicePort }}
         {{- end }}
     {{- end }}
-{{/*  tls:*/}}
-{{/*    - hosts:*/}}
-{{/*        {{- range .Values.ingress.hosts }}*/}}
-{{/*        - {{ .host }}*/}}
-{{/*        {{- end }}*/}}
-{{/*      secretName: yellow-taxi-me*/}}
+  tls:
+    - hosts:
+        {{- range .Values.ingress.hosts }}
+        - {{ .host }}
+        {{- end }}
+      secretName: yellow-taxi-me-key-pair
