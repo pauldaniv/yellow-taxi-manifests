@@ -1,17 +1,17 @@
-apiVersion: cert-manager.io/v1
-kind: Issuer
-metadata:
-  name: issuer-letsencrypt-http01
-  annotations:
-    helm.sh/hook: post-install,post-upgrade
-spec:
-  acme:
-    server: https://acme-v02.api.letsencrypt.org/directory
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
-    email: paulsegfault@gmail.com
-    privateKeySecretRef:
-      name: issuer-letsencrypt-http01-key-pair
-    solvers:
-      - http01:
-          ingress:
-            class: external-nginx
+{{/*apiVersion: cert-manager.io/v1*/}}
+{{/*kind: Issuer*/}}
+{{/*metadata:*/}}
+{{/*  name: issuer-letsencrypt-http01*/}}
+{{/*  annotations:*/}}
+{{/*    helm.sh/hook: post-install,post-upgrade*/}}
+{{/*spec:*/}}
+{{/*  acme:*/}}
+{{/*    server: https://acme-v02.api.letsencrypt.org/directory*/}}
+{{/*    server: https://acme-staging-v02.api.letsencrypt.org/directory*/}}
+{{/*    email: paulsegfault@gmail.com*/}}
+{{/*    privateKeySecretRef:*/}}
+{{/*      name: issuer-letsencrypt-http01-key-pair*/}}
+{{/*    solvers:*/}}
+{{/*      - http01:*/}}
+{{/*          ingress:*/}}
+{{/*            class: external-nginx*/}}
