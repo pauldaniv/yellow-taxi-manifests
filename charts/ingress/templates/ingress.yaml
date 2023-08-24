@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: {{ .Values.ingress.name }}
   annotations:
-    cert-manager.io/issuer: issuer-letsencrypt-http01-prod #todo: use dns-01 issuer instead
+    cert-manager.io/issuer: issuer-letsencrypt-http01 #todo: use dns-01 issuer instead
     acme.cert-manager.io/http01-edit-in-place: 'true'
     cert-manager.io/http01-edit-in-place: 'true'
 {{/*    nlb.ingress.kubernetes.io/scheme: internet-facing*/}}
