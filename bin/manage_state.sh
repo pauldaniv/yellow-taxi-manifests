@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ACTION=$1
-AVAILABLE_ACTIONS="Available actions: [prepare, apply, destroy, re-create]"
+AVAILABLE_ACTIONS="Available actions: [prepare, enabled, disabled]"
 
 cd "$(cd "$(dirname "$0")/.."; pwd)"
 
@@ -58,7 +58,7 @@ function destroy() {
 
 if [[ "$ACTION" = "prepare" ]]; then
   init
-elif [[ "$ACTION" = "apply" && "$GITHUB_COMMIT_MESSAGE" == *"action: apply"* || "$GITHUB_COMMIT_MESSAGE" == *"Auto-deploy"* ]]; then
+elif [[ "$ACTION" = "enabled" && "$GITHUB_COMMIT_MESSAGE" == *"action: apply"* || "$GITHUB_COMMIT_MESSAGE" == *"Auto-deploy"* ]]; then
   apply
 elif [[ "$GITHUB_COMMIT_MESSAGE" == *"action: destroy"* ]]; then
   destroy
