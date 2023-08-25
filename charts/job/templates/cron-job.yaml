@@ -10,7 +10,7 @@ spec:
     spec:
       template:
         spec:
-          serviceAccountName: "{{ .Values.job.name }}-test-service-account"
+          serviceAccountName: "{{ .Values.job.name }}-service-account"
           containers:
             - name: totals
               image: "{{ .Values.job.container.image.repository }}/{{ .Values.job.container.image.name }}:{{ .Values.job.container.image.versionTag }}"
