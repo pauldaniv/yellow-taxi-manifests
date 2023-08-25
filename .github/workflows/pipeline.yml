@@ -15,6 +15,7 @@ jobs:
       AWS_DOMAIN_OWNER_ID: ${{ secrets.AWS_DOMAIN_OWNER_ID }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      GITHUB_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3

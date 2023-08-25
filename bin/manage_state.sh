@@ -25,7 +25,7 @@ function init() {
   helmfile init
 }
 
-function create() {
+function apply() {
   echo "Applying CRDs..."
   kubectl create namespace yellow-taxi
   helm upgrade --install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws
@@ -58,16 +58,16 @@ function destroy() {
 
 if [[ "$ACTION" = "prepare" ]]; then
   init
-elif [[ "$ACTION" = "apply" ]]; then
-  create
-elif [[ "$ACTION" = "destroy" ]]; then
+elif [[ "$ACTION" = "apply" && "$GITHUB_COMMIT_MESSAGE" == *"action: apply"* || "$GITHUB_COMMIT_MESSAGE" == *"Auto-deploy"* ]]; then
+  apply
+elif [[ "$GITHUB_COMMIT_MESSAGE" == *"action: destroy"* ]]; then
   destroy
-elif [[ "$ACTION" = "re-create" ]]; then
+elif [[ "$GITHUB_COMMIT_MESSAGE" == "action: re-create" ]]; then
   echo "Re-creating infrastructure..."
   destroy
   echo "Backoff..."
   sleep 30s
-  create
+  apply
 else
   echo "Unknown action provided: $ACTION. Available actions: $AVAILABLE_ACTIONS"
 fi
