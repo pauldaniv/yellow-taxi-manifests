@@ -60,9 +60,9 @@ if [[ "$ACTION" = "prepare" ]]; then
   init
 elif [[ "$ACTION" = "enabled" && "$GITHUB_COMMIT_MESSAGE" == *"action: apply"* || "$GITHUB_COMMIT_MESSAGE" == *"Auto-deploy"* ]]; then
   apply
-elif [[ "$GITHUB_COMMIT_MESSAGE" == *"action: destroy"* ]]; then
+elif [[ "$ACTION" = "disabled" || "$GITHUB_COMMIT_MESSAGE" == *"action: destroy"* ]]; then
   destroy
-elif [[ "$GITHUB_COMMIT_MESSAGE" == "action: re-create" ]]; then
+elif [[ "$ACTION" = "enabled" && "$GITHUB_COMMIT_MESSAGE" == "action: re-create" ]]; then
   echo "Re-creating infrastructure..."
   destroy
   echo "Backoff..."
