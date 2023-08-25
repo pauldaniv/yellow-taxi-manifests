@@ -66,7 +66,7 @@ elif [[ "$ACTION" = "re-create" ]]; then
   echo "Re-creating infrastructure..."
   destroy
   echo "Backoff..."
-  sleep 14s
+  sleep 30s
   create
 else
   echo "Unknown action provided: $ACTION. Available actions: $AVAILABLE_ACTIONS"
