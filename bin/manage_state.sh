@@ -68,6 +68,8 @@ elif [[ "$ACTION" = "enabled" && "$GITHUB_COMMIT_MESSAGE" == "action: re-create"
   echo "Backoff..."
   sleep 30s
   apply
+elif [[ "$ACTION" = "enabled" || "$ACTION" = "disabled" ]]; then
+  echo "Unknown commit message action provided: $GITHUB_COMMIT_MESSAGE. Available actions: [action: apply, action: destroy, action: re-create]"
 else
   echo "Unknown action provided: $ACTION. Available actions: $AVAILABLE_ACTIONS"
 fi
