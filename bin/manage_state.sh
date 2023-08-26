@@ -2,6 +2,7 @@
 
 ACTION=$1
 AVAILABLE_ACTIONS="Available actions: [prepare, enabled, disabled]"
+HELM_DIFF_COLOR=true
 
 cd "$(cd "$(dirname "$0")/.."; pwd)"
 
@@ -36,9 +37,9 @@ function apply() {
   #  kubectl apply -f charts/secret/templates/spc.yaml -n yellow-taxi
 
   echo "Applying infrastructure..."
-  helmfile apply --file default-services.yaml
-  helmfile apply --file yt-prod.yaml
-  helmfile apply --file default-apps.yaml
+  helmfile apply --color --file default-services.yaml
+  helmfile apply --color --file yt-prod.yaml
+  helmfile apply --color --file default-apps.yaml
 
   echo "Getting ingress details:"
   kubectl get ingress -n yellow-taxi
@@ -46,9 +47,9 @@ function apply() {
 
 function destroy() {
   echo "Destroying infrastructure..."
-  helmfile destroy --file default-apps.yaml
-  helmfile destroy --file yt-prod.yaml
-  helmfile destroy --file default-services.yaml
+  helmfile destroy --color --file default-apps.yaml
+  helmfile destroy --color --file yt-prod.yaml
+  helmfile destroy --color --file default-services.yaml
   helm uninstall --namespace kube-system csi-secrets-store
   helm uninstall --namespace kube-system secrets-provider-aws
   helm uninstall --namespace cert-manager cert-manager
