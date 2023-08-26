@@ -2,7 +2,7 @@
 
 ACTION=$1
 AVAILABLE_ACTIONS="Available actions: [prepare, enabled, disabled]"
-HELM_DIFF_COLOR=true
+export HELM_DIFF_COLOR=true
 
 cd "$(cd "$(dirname "$0")/.."; pwd)"
 
