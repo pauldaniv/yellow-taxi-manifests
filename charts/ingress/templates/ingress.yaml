@@ -25,9 +25,9 @@ spec:
                   number: {{ .backend.servicePort }}
         {{- end }}
     {{- end }}
-  tls:
-    - hosts:
-        {{- range .Values.ingress.hosts }}
-        - {{ .host }}
-        {{- end }}
-      secretName: yellow-taxi-me-key-pair
+{{/*  tls:*/}}
+{{/*    - hosts:*/}}
+{{/*        {{- range .Values.ingress.hosts }}*/}}
+{{/*        - {{ .host }}*/}}
+{{/*        {{- end }}*/}}
+{{/*      secretName: yellow-taxi-me-key-pair*/}}
