@@ -3,7 +3,7 @@ app:
   container:
     image:
       name: taxi-trip-api
-      versionTag: ceb1877
+      versionTag: cb80db3
     plainEnv:
       KAFKA_HOSTNAME: kafka.kafka
       DB_HOST: terraform-20230825163605318200000015.cisxpoiobdgl.us-east-2.rds.amazonaws.com
