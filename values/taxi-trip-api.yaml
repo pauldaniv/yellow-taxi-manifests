@@ -4,6 +4,7 @@ app:
     image:
       name: taxi-trip-api
       versionTag: e5cf46d
+    healthCheckPath: /v1/health_check
     plainEnv:
       KAFKA_HOSTNAME: kafka.kafka
       DB_HOST: terraform-20230827053748915000000014.cisxpoiobdgl.us-east-2.rds.amazonaws.com
