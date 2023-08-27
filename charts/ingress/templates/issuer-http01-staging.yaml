@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: issuer-letsencrypt-http01
+  name: issuer-letsencrypt-http01-staging
   annotations:
     helm.sh/hook: post-install,post-upgrade
 spec:
