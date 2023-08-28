@@ -3,7 +3,7 @@ app:
   container:
     image:
       name: taxi-trip-facade
-      versionTag: 86da6ad
+      versionTag: 24b988b
     port: 8081
     healthCheckPath: /v1/health_check
     plainEnv:
