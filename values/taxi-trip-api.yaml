@@ -3,7 +3,7 @@ app:
   container:
     image:
       name: taxi-trip-api
-      versionTag: e5cf46d
+      versionTag: 128ce9f
     healthCheckPath: /v1/health_check
     plainEnv:
       KAFKA_HOSTNAME: kafka.kafka
