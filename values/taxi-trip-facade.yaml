@@ -1,5 +1,6 @@
 app:
   name: facade
+  replicaCount: 2
   container:
     image:
       name: taxi-trip-facade
