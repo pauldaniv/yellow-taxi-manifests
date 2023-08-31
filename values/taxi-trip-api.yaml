@@ -8,6 +8,6 @@ app:
     healthCheckPath: /v1/health_check
     plainEnv:
       KAFKA_HOSTNAME: kafka.kafka
-      DB_HOST: terraform-20230828183939437600000012.cisxpoiobdgl.us-east-2.rds.amazonaws.com
+      DB_HOST: terraform-20230831194716140100000013.cisxpoiobdgl.us-east-2.rds.amazonaws.com
     secretEnv:
       DB_PASS: db-pass
